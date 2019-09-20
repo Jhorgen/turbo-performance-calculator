@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="App">
-<p>test</p>
+<p>Looking into middleware (Redux Thunk)</p>
 
     </div>
   );
