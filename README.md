@@ -1,7 +1,7 @@
-*Component chart goes here*
+
 
 ![](CapTree.png)
-
+*Component tree without Redux*
 
  Boosted performance calculator
 
