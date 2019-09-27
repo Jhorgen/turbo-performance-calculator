@@ -17,7 +17,6 @@ function Routes() {
       <Route path="/app" component={App} />
     </Switch>
     </BrowserRouter>
-    <h1>this is Routes</h1>
     </div>
   );
 }
