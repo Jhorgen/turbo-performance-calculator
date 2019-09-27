@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 import IntroPage from './IntroPage'
+import vehicleForm from './vehicleForm'
+import vehicleResults from './vehicleFormResults'
 import '../App.css';
 
 
