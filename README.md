@@ -1,5 +1,7 @@
 *Component chart goes here*
 
+![](CapTree.png)
+
 
  Boosted performance calculator
 
