@@ -1,3 +1,6 @@
+*Component chart goes here*
+
+
  Boosted performance calculator
 
 Select a vehicle by its year, make, and model. Then select a turbocharger to receive performance statistics based on your selection.
