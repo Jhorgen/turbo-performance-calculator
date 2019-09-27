@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Titan+One&display=swap');
 
 
-.introPage {
+.intro-page {
   text-align: center;
   animation: wiggle 1.5s infinite;
 }
@@ -15,10 +15,18 @@
   100% { transform: rotate(0deg); }
 }
 
-.introHeader {
+.intro-header {
   font-family: 'Titan One', cursive;
   font-size: 15px;
   text-shadow: 4px 4px 4px grey;
   color: red;
+  text-align: center;
+}
+
+.vehicle-form {
+  text-align: center;
+}
+
+.app-header {
   text-align: center;
 }
