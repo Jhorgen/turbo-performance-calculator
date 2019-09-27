@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter, Link } from 'react-router-dom';
+import IntroPage from './IntroPage'
 import '../App.css';
 
 
@@ -7,9 +9,8 @@ import '../App.css';
 function App() {
 
   return (
-    <div className="App">
-<p>Looking into middleware (Redux Thunk)</p>
-
+    <div>
+    <h1>this is app</h1>
     </div>
   );
 }

@@ -1,22 +1,24 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Titan+One&display=swap');
+
+
+.introPage {
   text-align: center;
+  animation: wiggle 1.5s infinite;
 }
 
-.App-logo {
-  height: 40vmin;
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+   80% { transform: rotate(0deg); }
+   85% { transform: rotate(5deg); }
+   95% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
+.introHeader {
+  font-family: 'Titan One', cursive;
+  font-size: 15px;
+  text-shadow: 4px 4px 4px grey;
+  color: red;
+  text-align: center;
 }
