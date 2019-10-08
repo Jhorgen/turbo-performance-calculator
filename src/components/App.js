@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { fetchVehicle } from './../actions/index';
 import Vehicle from './Vehicle';
+import VehicleSearch from './VehicleSearch';
 
 
 const App = (props) => {
@@ -9,18 +10,9 @@ const App = (props) => {
     return (
       <div>
         <div><h1 class='make-header'>{props.make}</h1></div>
-        <button onClick={() => props.dispatch(fetchVehicle(props.make))}>Show Vehicles</button>
-        {props.loading
-          ? <p>Loading...</p>
-          : props.error
-          ? <p>Error, try again</p>
-          : props.vehicles.map(vehicle => <Vehicle vehicle={vehicle} />)
-
-        }
-        </div>
+        <VehicleSearch make={props.make} />
+      </div>
       )
-      console.log(props.make);
-
     }
 
   export const ConnectedApp = connect((state) => {
