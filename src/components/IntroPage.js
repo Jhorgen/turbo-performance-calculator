@@ -7,12 +7,13 @@ function IntroPage() {
   return (
     <div>
     <div className='intro-page'>
-    <Link to='/app'>
+    <Link to='/makes'>
     <img src={introImage} />
     </Link>
     </div>
     <div className='intro-header'>
-    <h1>Boosted Performance Calculator</h1>
+      <h1>Turbo Concepts</h1>
+    <h2>Forced Induction Calculator</h2>
     </div>
     </div>
   );

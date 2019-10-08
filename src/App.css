@@ -33,3 +33,11 @@
 
 .form-text {
 }
+
+.make-select {
+  width: 150px;
+}
+
+.make-header {
+  text-align: center;
+}
