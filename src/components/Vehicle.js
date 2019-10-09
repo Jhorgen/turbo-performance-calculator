@@ -5,38 +5,38 @@ class Vehicle extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      result: null,
-      selectValue: ''
+      newHorsepower: null,
+      newTorque:  null,
+      selectValue: 0
     }
   }
 
-   RunThis = (e, horsepower, psi) => {
+   RunThis = (e, horsepower, torque, psi) => {
 
      psi = psi === '' ? 0 : psi
 
-     let result = parseInt(horsepower) + parseInt(psi) + parseFloat(this.state.selectValue)
+     let horsepowerResult = parseInt(horsepower) + parseInt(psi) + parseFloat(this.state.selectValue)
+     let torqueResult = parseInt(torque) + parseInt(psi) + parseFloat(this.state.selectValue)
 
-     console.log(horsepower, psi);
+     console.log(horsepower, torque, psi);
 
-     console.log(this.state.result);
 
-      this.setState({result: result})
+      this.setState({newHorsepower: horsepowerResult, newTorque: torqueResult})
 
     }
 
   callThis = (e) => {
 
-    this.setState({...this.state, selectValue: e.target.value},
+    this.setState({...this.state, selectValue: e.target.value});
 
-    ()=> {console.log(this.state.selectValue)}
-    );
+    console.log(this.state.selectValue);
   }
 
 render() {
   let psi
   return (
     <div>
-    <div onClick={(e) => this.RunThis(e, this.props.vehicle.horsepower, psi.value)}>
+    <div onClick={(e) => this.RunThis(e, this.props.vehicle.horsepower, this.props.vehicle.torque, psi.value)}>
   Make: {this.props.vehicle.make}<br/>
 Year: {this.props.vehicle.year}<br/>
   Model: {this.props.vehicle.model}<br/>
@@ -55,7 +55,8 @@ Torque: {this.props.vehicle.torque}<br/>
     <button>Submit</button>
     </form>
     <div>
-    <h1>{this.state.result}</h1>
+    <h1>{this.state.newHorsepower}</h1>
+    <h1>{this.state.newTorque}</h1>
     </div>
    </div>
  </div>

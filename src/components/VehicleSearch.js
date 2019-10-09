@@ -16,7 +16,7 @@ const VehicleSearch = (props) => {
       <input placeholder='Trim' ref={(input) => {trim = input;}}/>
       <button>Submit</button>
     </form>
-    <div>
+    <div className='vehicle-result'>
     {props.loading
       ? <p>Loading...</p>
       : props.error
