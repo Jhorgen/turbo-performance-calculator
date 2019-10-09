@@ -11,8 +11,8 @@ import './../App.css';
 const App = (props) => {
     console.log(props.make);
     return (
-      <div className='make-select-background'>
-        <div><h1 class='make-header'>{props.make}</h1></div>
+      <div>
+        
         <VehicleSearch make={props.make} />
 
       </div>
