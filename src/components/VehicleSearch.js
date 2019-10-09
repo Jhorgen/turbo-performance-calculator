@@ -8,7 +8,7 @@ const VehicleSearch = (props) => {
   let year = null;
   let trim = null;
   return (
-  <div>
+  <div className='input-form'>
     <form onSubmit={(e) => { e.preventDefault();
         props.dispatch(fetchVehicle(props.make, model.value, year.value, trim.value))}}>
       <input placeholder='Model' ref={(input) => {model = input;}}/>
@@ -16,12 +16,14 @@ const VehicleSearch = (props) => {
       <input placeholder='Trim' ref={(input) => {trim = input;}}/>
       <button>Submit</button>
     </form>
+    <div>
     {props.loading
       ? <p>Loading...</p>
       : props.error
       ? <p>Error, try again</p>
       : props.vehicles.map(vehicle => <Vehicle vehicle={vehicle} />)
     }
+    </div>
   </div>
   );
 }

@@ -54,3 +54,9 @@
   background-size: cover;
   background-color: blue;
 }
+
+.input-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
