@@ -26,5 +26,4 @@ const VehicleSearch = (props) => {
   );
 }
 
-
 export default connect(state => state)(VehicleSearch);

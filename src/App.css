@@ -41,3 +41,8 @@
 .make-header {
   text-align: center;
 }
+
+.psi-input {
+  height: 25px;
+  width: 60px;
+}
