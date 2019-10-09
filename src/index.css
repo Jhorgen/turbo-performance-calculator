@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url(/img/makeselect.jpg) no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+}

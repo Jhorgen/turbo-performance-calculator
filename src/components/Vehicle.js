@@ -1,29 +1,37 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-export const RunThis = (e, horsepower, psi) => {
-  e.preventDefault()
-    return (
-    alert(parseInt(horsepower) + parseInt(psi))
-  )
-}
+class Vehicle extends React.Component {
+  constructor(props) {
+  super(props);
 
-const Vehicle = (props) => {
-  let vehicle = props.vehicle
+   const RunThis = (e, horsepower, psi) => {
+    let result = parseInt(horsepower) + parseInt(psi)
+    let newResult
+    if (result > 1) {
+     newResult = result
+    } else {
+      console.log('test');
+    }
+  }
+
+  }
+
+render() {
   let turbo
   let psi
   return (
     <div>
-    <div onClick={(e) => RunThis(e, vehicle.horsepower, psi.value)}>
-  Make: {vehicle.make}<br/>
-  Year: {vehicle.year}<br/>
-  Model: {vehicle.model}<br/>
-  Trim: {vehicle.trim}<br/>
-  Horsepower: {vehicle.horsepower}<br/>
-  Torque: {vehicle.torque}<br/>
+    <div>
+  Make: {this.props.vehicle.make}<br/>
+Year: {this.props.vehicle.year}<br/>
+  Model: {this.props.vehicle.model}<br/>
+Trim: {this.props.vehicle.trim}<br/>
+  Horsepower: {this.props.vehicle.horsepower}<br/>
+Torque: {this.props.vehicle.torque}<br/>
    </div>
    <div>
-     <form onSubmit={(e) => RunThis(e, vehicle.horsepower)}>
+     <form>
     <select ref={(input) => {turbo = input;}}>
     <option>GT28R</option>
     <option>K03</option>
@@ -32,7 +40,10 @@ const Vehicle = (props) => {
     <button>Submit</button>
     </form>
    </div>
+   <div>
+   </div>
  </div>
   );
 }
-export default connect(state => state)(Vehicle, RunThis);
+}
+export default connect(state => state)(Vehicle);
