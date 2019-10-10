@@ -46,7 +46,7 @@ const VehicleSearch = (props) => {
     </form>
     <div className='vehicle-result'>
     {props.loading
-      ? <p>Loading...</p>
+      ? <p className='loading'>Loading...</p>
       : props.error
       ? <p>Error, try again</p>
       : props.vehicles.map(vehicle => <Vehicle vehicle={vehicle} />)

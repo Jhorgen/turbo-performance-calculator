@@ -12,16 +12,16 @@ class Vehicle extends React.Component {
   }
 
    RunThis = (e, horsepower, torque, psi) => {
-
+     e.preventDefault();
      psi = psi === '' ? 0 : psi
 
-     let horsepowerResult = parseInt(horsepower) + parseInt(psi) + parseFloat(this.state.selectValue)
+     let horsepowerResult = parseInt(horsepower) + parseInt(psi*8) + parseFloat(this.state.selectValue)
      let torqueResult = parseInt(torque) + parseInt(psi) + parseFloat(this.state.selectValue)
 
      console.log(horsepower, torque, psi);
 
-
-      this.setState({newHorsepower: horsepowerResult, newTorque: torqueResult})
+     
+      this.setState({newHorsepower: 'Turbocharged horsepower: ' + horsepowerResult, newTorque: 'Turbocharged torque: ' + torqueResult})
 
     }
 
@@ -36,16 +36,16 @@ render() {
   let psi
   return (
     <div>
-    <div onClick={(e) => this.RunThis(e, this.props.vehicle.horsepower, this.props.vehicle.torque, psi.value)}>
+    <div>
   Make: {this.props.vehicle.make}<br/>
 Year: {this.props.vehicle.year}<br/>
-  Model: {this.props.vehicle.model}<br/>
+Model: {this.props.vehicle.model}<br/>
 Trim: {this.props.vehicle.trim}<br/>
-  Horsepower: {this.props.vehicle.horsepower}<br/>
+Horsepower: {this.props.vehicle.horsepower}<br/>
 Torque: {this.props.vehicle.torque}<br/>
    </div>
    <div>
-     <form>
+     <form onSubmit={(e) => this.RunThis(e, this.props.vehicle.horsepower, this.props.vehicle.torque, psi.value)}>
     <select onChange={this.callThis} >
     <option value=''>Select turbo</option>
     <option value='0.5'>GT28R</option>
