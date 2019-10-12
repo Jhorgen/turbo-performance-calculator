@@ -12,6 +12,21 @@ import Ferrari from './../assets/ferrari.png'
 import Hyundai from './../assets/hyundai.png'
 import AstonMartin from './../assets/astonmartin.png'
 import Bently from './../assets/bently.png'
+import Volvo from './../assets/volvo.png'
+import Infiniti from './../assets/infiniti.png'
+import Chevrolet from './../assets/chevrolet.png'
+import Ford from './../assets/ford.png'
+import Cadillac from './../assets/cadillac.png'
+import Dodge from './../assets/dodge.png'
+import Chrysler from './../assets/chrysler.png'
+import Buick from './../assets/buick.png'
+import Mercury from './../assets/mercury.png'
+import Jaguar from './../assets/jaguar.png'
+import Acura from './../assets/acura.png'
+import Mazda from './../assets/mazda.png'
+import Fiat from './../assets/fiat.png'
+import LandRover from './../assets/landrover.png'
+import Maserati from './../assets/maserati.png'
 
 const MakeSelect = (props) => (
   <div className='make-select-background'>
@@ -63,15 +78,6 @@ const MakeSelect = (props) => (
     <Link to={
         {
         pathname: '/vehicles',
-        state: {make: 'Honda'}
-        }
-      }>
-     <img src={Honda} className='make-select' />
-    </Link>
-
-    <Link to={
-        {
-        pathname: '/vehicles',
         state: {make: 'Nissan'}
         }
       }>
@@ -90,10 +96,10 @@ const MakeSelect = (props) => (
     <Link to={
         {
         pathname: '/vehicles',
-        state: {make: 'Hyundai'}
+        state: {make: 'Jaguar'}
         }
       }>
-     <img src={Hyundai} className='make-select' />
+     <img src={Jaguar} className='make-select' />
     </Link>
 
     <Link to={
@@ -117,10 +123,118 @@ const MakeSelect = (props) => (
     <Link to={
         {
         pathname: '/vehicles',
+        state: {make: 'Volvo'}
+        }
+      }>
+     <img src={Volvo} className='make-select' />
+    </Link>
+
+    <Link to={
+        {
+        pathname: '/vehicles',
+        state: {make: 'Infiniti'}
+        }
+      }>
+     <img src={Infiniti} className='make-select' />
+    </Link>
+
+    <Link to={
+        {
+        pathname: '/vehicles',
         state: {make: 'Toyota'}
         }
       }>
      <img src={Toyota} className='make-select' />
+    </Link>
+
+    <Link to={
+        {
+        pathname: '/vehicles',
+        state: {make: 'Ford'}
+        }
+      }>
+     <img src={Ford} className='make-select' />
+    </Link>
+
+    <Link to={
+        {
+        pathname: '/vehicles',
+        state: {make: 'Chevrolet'}
+        }
+      }>
+     <img src={Chevrolet} className='make-select' />
+    </Link>
+
+    <Link to={
+        {
+        pathname: '/vehicles',
+        state: {make: 'Cadillac'}
+        }
+      }>
+     <img src={Cadillac} className='make-select' />
+    </Link>
+
+    <Link to={
+        {
+        pathname: '/vehicles',
+        state: {make: 'Dodge'}
+        }
+      }>
+     <img src={Dodge} className='make-select' />
+    </Link>
+
+    <Link to={
+        {
+        pathname: '/vehicles',
+        state: {make: 'Chrysler'}
+        }
+      }>
+     <img src={Chrysler} className='make-select' />
+    </Link>
+
+    <Link to={
+        {
+        pathname: '/vehicles',
+        state: {make: 'Buick'}
+        }
+      }>
+     <img src={Buick} className='make-select' />
+    </Link>
+
+    <Link to={
+        {
+        pathname: '/vehicles',
+        state: {make: 'Mercury'}
+        }
+      }>
+     <img src={Mercury} className='make-select' />
+    </Link>
+
+    <Link to={
+        {
+        pathname: '/vehicles',
+        state: {make: 'Fiat'}
+        }
+      }>
+     <img src={Fiat} className='make-select' />
+    </Link>
+
+    <Link to={
+        {
+        pathname: '/vehicles',
+        state: {make: 'Land Rover'}
+        }
+      }>
+     <img src={LandRover} className='make-select' />
+    </Link>
+
+    <Link to={
+        {
+        pathname: '/vehicles',
+        state: {make: 'Maserati'}
+        }
+      }>
+     <img src={Maserati} className='make-select' />
     </Link>
 
     <Link to={
@@ -207,130 +321,41 @@ const MakeSelect = (props) => (
     <Link to={
         {
         pathname: '/vehicles',
-        state: {make: 'Toyota'}
+        state: {make: 'Mazda'}
         }
       }>
-     <img src={Toyota} className='make-select' />
+     <img src={Mazda} className='make-select' />
     </Link>
 
     <Link to={
         {
         pathname: '/vehicles',
-        state: {make: 'Toyota'}
+        state: {make: 'Honda'}
         }
       }>
-     <img src={Toyota} className='make-select' />
+     <img src={Honda} className='make-select' />
     </Link>
+
 
     <Link to={
         {
         pathname: '/vehicles',
-        state: {make: 'Toyota'}
+        state: {make: 'Acura'}
         }
       }>
-     <img src={Toyota} className='make-select' />
+     <img src={Acura} className='make-select' />
     </Link>
 
-    <Link to={
-        {
-        pathname: '/vehicles',
-        state: {make: 'Toyota'}
-        }
-      }>
-     <img src={Toyota} className='make-select' />
-    </Link>
+  <Link to={
+      {
+      pathname: '/vehicles',
+      state: {make: 'Hyundai'}
+      }
+    }>
+   <img src={Hyundai} className='make-select' />
+  </Link>
 
-    <Link to={
-        {
-        pathname: '/vehicles',
-        state: {make: 'Toyota'}
-        }
-      }>
-     <img src={Toyota} className='make-select' />
-    </Link>
-
-    <Link to={
-        {
-        pathname: '/vehicles',
-        state: {make: 'Toyota'}
-        }
-      }>
-     <img src={Toyota} className='make-select' />
-    </Link>
-
-    <Link to={
-        {
-        pathname: '/vehicles',
-        state: {make: 'Toyota'}
-        }
-      }>
-     <img src={Toyota} className='make-select' />
-    </Link>
-
-    <Link to={
-        {
-        pathname: '/vehicles',
-        state: {make: 'Toyota'}
-        }
-      }>
-     <img src={Toyota} className='make-select' />
-    </Link>
-
-    <Link to={
-        {
-        pathname: '/vehicles',
-        state: {make: 'Toyota'}
-        }
-      }>
-     <img src={Toyota} className='make-select' />
-    </Link>
-
-    <Link to={
-        {
-        pathname: '/vehicles',
-        state: {make: 'Toyota'}
-        }
-      }>
-     <img src={Toyota} className='make-select' />
-    </Link>
-
-    <Link to={
-        {
-        pathname: '/vehicles',
-        state: {make: 'Toyota'}
-        }
-      }>
-     <img src={Toyota} className='make-select' />
-    </Link>
-
-    <Link to={
-        {
-        pathname: '/vehicles',
-        state: {make: 'Toyota'}
-        }
-      }>
-     <img src={Toyota} className='make-select' />
-    </Link>
-
-    <Link to={
-        {
-        pathname: '/vehicles',
-        state: {make: 'Toyota'}
-        }
-      }>
-     <img src={Toyota} className='make-select' />
-    </Link>
-
-    <Link to={
-        {
-        pathname: '/vehicles',
-        state: {make: 'Toyota'}
-        }
-      }>
-     <img src={Toyota} className='make-select' />
-    </Link>
-  </div>
-  );
-
+</div>
+);
 
 export default MakeSelect;
