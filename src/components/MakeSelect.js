@@ -27,9 +27,62 @@ import Mazda from './../assets/mazda.png'
 import Fiat from './../assets/fiat.png'
 import LandRover from './../assets/landrover.png'
 import Maserati from './../assets/maserati.png'
+import Porsche from './../assets/porsche.png'
+import Saab from './../assets/saab.png'
+import Volkswagen from './../assets/volkswagen.png'
+import Subaru from './../assets/subaru.png'
+import Kia from './../assets/kia.png'
+import Jeep from './../assets/jeep.png'
+import Mercedes from './../assets/mercedes.png'
+import Lamborghini from './../assets/lamborghini.png'
+import Lotus from './../assets/lotus.png'
+import Saturn from './../assets/saturn.png'
+import Pontiac from './../assets/pontiac.png'
+import Suzuki from './../assets/suzuki.png'
+import Mitsubishi from './../assets/mitsubishi.png'
+import Mini from './../assets/mini.png'
+import Mclaren from './../assets/mclaren.png'
 
-const MakeSelect = (props) => (
-  <div className='make-select-background'>
+//fonts for drop-downs/keglist
+
+class MakeSelect extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+  importClicked: false,
+  americanClicked: false,
+  exoticClicked: false
+  }
+}
+
+handleImportList = () => {
+  let temp = !this.state.importClicked
+  this.setState ({
+    importClicked: temp
+  })
+}
+
+handleAmericanList = () => {
+  let temp = !this.state.americanClicked
+  this.setState ({
+    americanClicked: temp
+  })
+}
+
+handleExoticList = () => {
+  let temp = !this.state.exoticClicked
+  this.setState ({
+    exoticClicked: temp
+  })
+}
+
+render() {
+  return (
+  <div className='make-list-background'>
+    <div className='make-list-template'>
+    <div onClick={() => this.handleImportList()} className='make-dropdown-test'>European</div>
+  { this.state.importClicked &&
+    <div className='testtest'>
     <Link to={
         {
         pathname: '/vehicles',
@@ -119,7 +172,12 @@ const MakeSelect = (props) => (
       }>
      <img src={Bently} className='make-select' />
     </Link>
+  </div>
+  }
 
+  <div onClick={() => this.handleExoticList()} className='make-dropdown'>American</div>
+  { this.state.exoticClicked &&
+    <div>
     <Link to={
         {
         pathname: '/vehicles',
@@ -141,10 +199,10 @@ const MakeSelect = (props) => (
     <Link to={
         {
         pathname: '/vehicles',
-        state: {make: 'Toyota'}
+        state: {make: 'Kia'}
         }
       }>
-     <img src={Toyota} className='make-select' />
+     <img src={Kia} className='make-select' />
     </Link>
 
     <Link to={
@@ -209,7 +267,12 @@ const MakeSelect = (props) => (
       }>
      <img src={Mercury} className='make-select' />
     </Link>
+  </div>
+  }
 
+  <div onClick={() => this.handleAmericanList()} className='make-dropdown'>Import</div>
+  { this.state.americanClicked &&
+    <div>
     <Link to={
         {
         pathname: '/vehicles',
@@ -240,64 +303,132 @@ const MakeSelect = (props) => (
     <Link to={
         {
         pathname: '/vehicles',
-        state: {make: 'Toyota'}
+        state: {make: 'Porsche'}
         }
       }>
-     <img src={Toyota} className='make-select' />
+     <img src={Porsche} className='make-select' />
     </Link>
 
     <Link to={
         {
         pathname: '/vehicles',
-        state: {make: 'Toyota'}
+        state: {make: 'Saab'}
         }
       }>
-     <img src={Toyota} className='make-select' />
+     <img src={Saab} className='make-select' />
     </Link>
 
     <Link to={
         {
         pathname: '/vehicles',
-        state: {make: 'Toyota'}
+        state: {make: 'Volkswagen'}
         }
       }>
-     <img src={Toyota} className='make-select' />
+     <img src={Volkswagen} className='make-select' />
     </Link>
 
     <Link to={
         {
         pathname: '/vehicles',
-        state: {make: 'Toyota'}
+        state: {make: 'Lotus'}
         }
       }>
-     <img src={Toyota} className='make-select' />
+     <img src={Lotus} className='make-select' />
     </Link>
 
     <Link to={
         {
         pathname: '/vehicles',
-        state: {make: 'Toyota'}
+        state: {make: 'Saturn'}
         }
       }>
-     <img src={Toyota} className='make-select' />
+     <img src={Saturn} className='make-select' />
     </Link>
 
     <Link to={
         {
         pathname: '/vehicles',
-        state: {make: 'Toyota'}
+        state: {make: 'Pontiac'}
         }
       }>
-     <img src={Toyota} className='make-select' />
+     <img src={Pontiac} className='make-select' />
     </Link>
 
     <Link to={
         {
         pathname: '/vehicles',
-        state: {make: 'Toyota'}
+        state: {make: 'Suzuki'}
         }
       }>
-     <img src={Toyota} className='make-select' />
+     <img src={Suzuki} className='make-select' />
+    </Link>
+    </div>
+    }
+
+    <div onClick={() => this.handleClick()} className='make-dropdown'>etc</div>
+    { this.state.clicked &&
+    <div>
+    <Link to={
+        {
+        pathname: '/vehicles',
+        state: {make: 'Mitsubishi'}
+        }
+      }>
+     <img src={Mitsubishi} className='make-select' />
+    </Link>
+
+    <Link to={
+        {
+        pathname: '/vehicles',
+        state: {make: 'Mini'}
+        }
+      }>
+     <img src={Mini} className='make-select' />
+    </Link>
+
+    <Link to={
+        {
+        pathname: '/vehicles',
+        state: {make: 'Mclaren'}
+        }
+      }>
+     <img src={Mclaren} className='make-select' />
+    </Link>
+
+    <Link to={
+        {
+        pathname: '/vehicles',
+        state: {make: 'Subaru'}
+        }
+      }>
+     <img src={Subaru} className='make-select' />
+    </Link>
+
+    <Link to={
+        {
+        pathname: '/vehicles',
+        state: {make: 'Jeep'}
+        }
+      }>
+     <img src={Jeep} className='make-select' />
+    </Link>
+
+    <Link to={
+        {
+        pathname: '/vehicles',
+        state: {make: 'Mercedes'}
+        }
+      }>
+     <img src={Mercedes} className='make-select' />
+    </Link>
+
+    <Link to={
+        {
+        pathname: '/vehicles',
+        state: {make: 'Lamborghini'}
+        }
+      }>
+     <img src={Lamborghini} className='make-select' />
     </Link>
 
     <Link to={
@@ -326,7 +457,12 @@ const MakeSelect = (props) => (
       }>
      <img src={Mazda} className='make-select' />
     </Link>
+    </div>
+  }
 
+    <div onClick={() => this.handleClick()} className='make-dropdown'>etc</div>
+    { this.state.clicked &&
+      <div>
     <Link to={
         {
         pathname: '/vehicles',
@@ -354,8 +490,14 @@ const MakeSelect = (props) => (
     }>
    <img src={Hyundai} className='make-select' />
   </Link>
-
+  </div>
+}
 </div>
-);
+</div>
+
+    );
+  }
+}
+
 
 export default MakeSelect;

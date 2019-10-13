@@ -86,3 +86,21 @@
   width: 40%;
   height: 40%;
 }
+
+.loading-img {
+  width: 30%;
+  height: 30%;
+}
+
+.make-dropdown {
+  text-align: center;
+  padding: 20px;
+}
+
+.testtest {
+  border: 1px solid black;
+}
+
+.make-list-background {
+  background-color: blue;
+}

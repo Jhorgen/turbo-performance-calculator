@@ -9,6 +9,21 @@ import toyota from './../img/toyotabackground.jpg'
 import lexus from './../img/lexusbackground.jpg'
 import bmw from './../img/bmwbackground.jpg'
 
+import subaru from './../img/subarubackground.jpg'
+import mclaren from './../img/mclarenbackground.jpg'
+import lotus from './../img/lotusbackground.jpg'
+import suzuki from './../img/suzukibackground.jpg'
+import nissan from './../img/nissanbackground.jpg'
+import mitsubishi from './../img/mitsubishibackground.jpg'
+import lamborghini from './../img/lambobackground.jpg'
+import maserati from './../img/maseratibackground.jpg'
+import porsche from './../img/porschebackground.jpg'
+import landrover from './../img/landroverbackground.jpg'
+import insuzu from './../img/insuzubackground.jpg'
+import ford from './../img/fordbackground.jpg'
+import ferrari from './../img/ferraribackground.jpg'
+
+
 function imageForMake(make) {
   switch(make) {
     case 'Audi': return audi;
@@ -16,11 +31,21 @@ function imageForMake(make) {
     case 'Bmw': return bmw;
     case 'Toyota': return toyota;
     case 'Lexus': return lexus;
-
+    case 'Subaru': return subaru;
+    case 'Mclaren': return mclaren;
+    case 'Lotus': return lotus;
+    case 'Suzuki': return suzuki;
+    case 'Nissan': return nissan;
+    case 'Mitsubishi': return mitsubishi;
+    case 'Lamborghini': return lamborghini;
+    case 'Maserati': return maserati;
+    case 'Porsche': return porsche;
+    case 'Land Rover': return landrover;
+    case 'Insuzu': return insuzu;
+    case 'Ford': return ford;
+    case 'Ferrari': return ferrari;
   }
-
 }
-
 
 const VehicleSearch = (props) => {
   var backgroundStyle = {

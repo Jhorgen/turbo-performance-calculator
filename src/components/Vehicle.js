@@ -19,16 +19,11 @@ class Vehicle extends React.Component {
      let torqueResult = parseInt(torque) + parseInt(psi) + parseFloat(this.state.selectValue)
 
      console.log(horsepower, torque, psi);
-
-     
       this.setState({newHorsepower: 'Turbocharged horsepower: ' + horsepowerResult, newTorque: 'Turbocharged torque: ' + torqueResult})
-
     }
 
   callThis = (e) => {
-
     this.setState({...this.state, selectValue: e.target.value});
-
     console.log(this.state.selectValue);
   }
 
