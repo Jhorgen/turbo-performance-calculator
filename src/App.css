@@ -93,14 +93,41 @@
 }
 
 .make-dropdown {
-  text-align: center;
   padding: 20px;
 }
 
 .testtest {
-  border: 1px solid black;
+  border-radius: 25px;
+  width: 70%;
 }
 
 .make-list-background {
-  background-color: blue;
+  background-color: black;
+}
+
+.tester {
+  background-color: lightcoral;
+  margin: 30px;
+  text-align: center;
+  border-radius: 25px;
+  margin-left: 225px;
+
+}
+
+.make-dropdown-test {
+  padding: 20px;
+  max-width: 100%;
+  height: auto;
+}
+
+.make-list-header {
+  text-align: center;
+  padding: 20px;
+  font-size: 65px;
+  color: white;
+  text-shadow: -2px 4px 10px red;
+}
+
+.make-list-container {
+  width: 50%;
 }

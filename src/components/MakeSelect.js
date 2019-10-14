@@ -79,9 +79,14 @@ handleExoticList = () => {
 render() {
   return (
   <div className='make-list-background'>
-    <div className='make-list-template'>
-    <div onClick={() => this.handleImportList()} className='make-dropdown-test'>European</div>
+    <div>
+      <h1 className='make-list-header'>MAKE LIST HEADER</h1>
+    </div>
+    <div className='make-list-container'>
+      <div className='tester'>
+    <div onClick={() => this.handleImportList()} className='make-dropdown-test'><h1>European</h1></div>
   { this.state.importClicked &&
+
     <div className='testtest'>
     <Link to={
         {
@@ -174,7 +179,8 @@ render() {
     </Link>
   </div>
   }
-
+</div>
+<div className='tester'>
   <div onClick={() => this.handleExoticList()} className='make-dropdown'>American</div>
   { this.state.exoticClicked &&
     <div>
@@ -269,6 +275,9 @@ render() {
     </Link>
   </div>
   }
+</div>
+
+  <div className='tester'>
 
   <div onClick={() => this.handleAmericanList()} className='make-dropdown'>Import</div>
   { this.state.americanClicked &&
@@ -364,6 +373,9 @@ render() {
     </Link>
     </div>
     }
+  </div>
+
+    <div className='tester'>
 
     <div onClick={() => this.handleClick()} className='make-dropdown'>etc</div>
     { this.state.clicked &&
@@ -460,6 +472,10 @@ render() {
     </div>
   }
 
+    </div>
+
+    <div className='tester'>
+
     <div onClick={() => this.handleClick()} className='make-dropdown'>etc</div>
     { this.state.clicked &&
       <div>
@@ -492,6 +508,7 @@ render() {
   </Link>
   </div>
 }
+</div>
 </div>
 </div>
 
