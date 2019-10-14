@@ -79,14 +79,14 @@ handleExoticList = () => {
 render() {
   return (
   <div className='make-list-background'>
+
     <div>
       <h1 className='make-list-header'>MAKE LIST HEADER</h1>
     </div>
-    <div className='make-list-container'>
-      <div className='tester'>
-    <div onClick={() => this.handleImportList()} className='make-dropdown-test'><h1>European</h1></div>
-  { this.state.importClicked &&
 
+    <div onClick={() => this.handleImportList()} className='make-dropdown'><h1>European</h1></div>
+    <div className='layer'>
+  { this.state.importClicked &&
     <div className='testtest'>
     <Link to={
         {
@@ -180,10 +180,11 @@ render() {
   </div>
   }
 </div>
-<div className='tester'>
-  <div onClick={() => this.handleExoticList()} className='make-dropdown'>American</div>
+
+  <div onClick={() => this.handleExoticList()} className='make-dropdown'><h1>American</h1></div>
+  <div className='layer'>
   { this.state.exoticClicked &&
-    <div>
+    <div className='testtest'>
     <Link to={
         {
         pathname: '/vehicles',
@@ -277,11 +278,10 @@ render() {
   }
 </div>
 
-  <div className='tester'>
-
-  <div onClick={() => this.handleAmericanList()} className='make-dropdown'>Import</div>
+  <div onClick={() => this.handleAmericanList()} className='make-dropdown'><h1>Import</h1></div>
+  <div className='layer'>
   { this.state.americanClicked &&
-    <div>
+    <div className='testtest'>
     <Link to={
         {
         pathname: '/vehicles',
@@ -373,13 +373,12 @@ render() {
     </Link>
     </div>
     }
-  </div>
+    </div>
 
-    <div className='tester'>
-
-    <div onClick={() => this.handleClick()} className='make-dropdown'>etc</div>
+    <div onClick={() => this.handleClick()} className='make-dropdown'><h1>etc</h1></div>
+    <div className='layer'>
     { this.state.clicked &&
-    <div>
+      <div className='testtest'>
     <Link to={
         {
         pathname: '/vehicles',
@@ -471,14 +470,12 @@ render() {
     </Link>
     </div>
   }
+  </div>
 
-    </div>
-
-    <div className='tester'>
-
-    <div onClick={() => this.handleClick()} className='make-dropdown'>etc</div>
+    <div onClick={() => this.handleClick()} className='make-dropdown'><h1>etc</h1></div>
+    <div className='layer'>
     { this.state.clicked &&
-      <div>
+      <div className='testtest'>
     <Link to={
         {
         pathname: '/vehicles',
@@ -508,7 +505,6 @@ render() {
   </Link>
   </div>
 }
-</div>
 </div>
 </div>
 

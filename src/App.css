@@ -94,11 +94,18 @@
 
 .make-dropdown {
   padding: 20px;
+  text-align: center;
+  background-color: coral;
+}
+
+.layer {
+  margin: 30px;
 }
 
 .testtest {
   border-radius: 25px;
-  width: 70%;
+  background-color: blue;
+  margin-top: 10px;
 }
 
 .make-list-background {
@@ -116,8 +123,9 @@
 
 .make-dropdown-test {
   padding: 20px;
-  max-width: 100%;
-  height: auto;
+  text-align: center;
+  background-color: coral;
+
 }
 
 .make-list-header {
