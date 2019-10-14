@@ -93,9 +93,12 @@
 }
 
 .make-dropdown {
-  padding: 20px;
   text-align: center;
+  padding: 5px;
   background-color: coral;
+  border-radius: 25px;
+  width: 85%;
+  margin-left: 100px;
 }
 
 .layer {

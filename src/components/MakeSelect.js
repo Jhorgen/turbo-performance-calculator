@@ -49,10 +49,18 @@ class MakeSelect extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+  europeanClicked: false,
   importClicked: false,
   americanClicked: false,
   exoticClicked: false
   }
+}
+
+handleImportList = () => {
+  let temp = !this.state.europeanClicked
+  this.setState ({
+    europeanClicked: temp
+  })
 }
 
 handleImportList = () => {
@@ -81,7 +89,7 @@ render() {
   <div className='make-list-background'>
 
     <div>
-      <h1 className='make-list-header'>MAKE LIST HEADER</h1>
+      <h1 className='make-list-header'>Make selection</h1>
     </div>
 
     <div onClick={() => this.handleImportList()} className='make-dropdown'><h1>European</h1></div>
@@ -375,7 +383,7 @@ render() {
     }
     </div>
 
-    <div onClick={() => this.handleClick()} className='make-dropdown'><h1>etc</h1></div>
+    <div onClick={() => this.handleClick()} className='make-dropdown'><h1>Exotic</h1></div>
     <div className='layer'>
     { this.state.clicked &&
       <div className='testtest'>
