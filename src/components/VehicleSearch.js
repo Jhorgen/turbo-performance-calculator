@@ -28,7 +28,7 @@ function imageForMake(make) {
   switch(make) {
     case 'Audi': return audi;
     case 'Alfa Romeo': return alfa_romeo;
-    case 'Bmw': return bmw;
+    case 'BMW': return bmw;
     case 'Toyota': return toyota;
     case 'Lexus': return lexus;
     case 'Subaru': return subaru;

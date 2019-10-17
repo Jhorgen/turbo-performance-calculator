@@ -107,8 +107,11 @@
 
 .testtest {
   border-radius: 25px;
-  background-color: blue;
+  background-color: beige;
   margin-top: 10px;
+  text-align: center;
+  padding: 10px;
+
 }
 
 .make-list-background {
