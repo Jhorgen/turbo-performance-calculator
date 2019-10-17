@@ -64,8 +64,9 @@ const VehicleSearch = (props) => {
   <div className='input-form'>
     <form onSubmit={(e) => { e.preventDefault();
         props.dispatch(fetchVehicle(props.make, model.value, year.value, trim.value))}}>
+        <input placeholder='Year' ref={(input) => {year = input;}}/>
+        <span className='make-form-prop'>{props.make}</span>
       <input placeholder='Model' ref={(input) => {model = input;}}/>
-      <input placeholder='Year' ref={(input) => {year = input;}}/>
       <input placeholder='Trim' ref={(input) => {trim = input;}}/>
       <button>Submit</button>
     </form>

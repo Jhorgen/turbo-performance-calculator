@@ -56,10 +56,17 @@ class MakeSelect extends React.Component {
   }
 }
 
-handleImportList = () => {
+handleEuropeanList = () => {
   let temp = !this.state.europeanClicked
   this.setState ({
     europeanClicked: temp
+  })
+}
+
+handleAmericanList = () => {
+  let temp = !this.state.americanClicked
+  this.setState ({
+    americanClicked: temp
   })
 }
 
@@ -70,12 +77,6 @@ handleImportList = () => {
   })
 }
 
-handleAmericanList = () => {
-  let temp = !this.state.americanClicked
-  this.setState ({
-    americanClicked: temp
-  })
-}
 
 handleExoticList = () => {
   let temp = !this.state.exoticClicked
@@ -92,9 +93,9 @@ render() {
       <h1 className='make-list-header'>Make selection</h1>
     </div>
 
-    <div onClick={() => this.handleImportList()} className='make-dropdown'><h1>European</h1></div>
+    <div onClick={() => this.handleEuropeanList()} className='make-dropdown'><h1>European</h1></div>
     <div className='layer'>
-  { this.state.importClicked &&
+  { this.state.europeanClicked &&
     <div className='testtest'>
     <Link to={
         {
@@ -189,9 +190,9 @@ render() {
   }
 </div>
 
-  <div onClick={() => this.handleExoticList()} className='make-dropdown'><h1>American</h1></div>
+  <div onClick={() => this.handleAmericanList()} className='make-dropdown'><h1>American</h1></div>
   <div className='layer'>
-  { this.state.exoticClicked &&
+  { this.state.americanClicked &&
     <div className='testtest'>
     <Link to={
         {
@@ -286,9 +287,9 @@ render() {
   }
 </div>
 
-  <div onClick={() => this.handleAmericanList()} className='make-dropdown'><h1>Import</h1></div>
+  <div onClick={() => this.handleImportList()} className='make-dropdown'><h1>Import</h1></div>
   <div className='layer'>
-  { this.state.americanClicked &&
+  { this.state.exoticClicked &&
     <div className='testtest'>
     <Link to={
         {
@@ -383,7 +384,7 @@ render() {
     }
     </div>
 
-    <div onClick={() => this.handleClick()} className='make-dropdown'><h1>Exotic</h1></div>
+    <div onClick={() => this.handleExoticList()} className='make-dropdown'><h1>Exotic</h1></div>
     <div className='layer'>
     { this.state.clicked &&
       <div className='testtest'>
@@ -476,14 +477,7 @@ render() {
       }>
      <img src={Mazda} className='make-select' />
     </Link>
-    </div>
-  }
-  </div>
 
-    <div onClick={() => this.handleClick()} className='make-dropdown'><h1>etc</h1></div>
-    <div className='layer'>
-    { this.state.clicked &&
-      <div className='testtest'>
     <Link to={
         {
         pathname: '/vehicles',
@@ -511,9 +505,9 @@ render() {
     }>
    <img src={Hyundai} className='make-select' />
   </Link>
+    </div>
+  }
   </div>
-}
-</div>
 </div>
 
     );

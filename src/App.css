@@ -142,3 +142,15 @@
 .make-list-container {
   width: 50%;
 }
+
+.make-form-prop {
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  padding: 5px;
+  text-shadow: -2px 4px 10px coral;
+}
+
+.input-form {
+  border-radius: 5px;
+}
