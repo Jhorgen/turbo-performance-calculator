@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Titan+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lexend+Tera&display=swap');
 
 
 .intro-page {
@@ -95,10 +96,10 @@
 .make-dropdown {
   text-align: center;
   padding: 5px;
-  background-color: coral;
   border-radius: 25px;
   width: 85%;
   margin-left: 100px;
+  font-family: 'Lexend Tera', sans-serif;
 }
 
 .layer {
@@ -115,7 +116,6 @@
 }
 
 .make-list-background {
-  background-color: black;
 }
 
 .tester {
@@ -137,9 +137,11 @@
 .make-list-header {
   text-align: center;
   padding: 20px;
-  font-size: 65px;
+  font-size: 60px;
   color: white;
   text-shadow: -2px 4px 10px red;
+  background-color: black;
+  font-family: 'Lexend Tera', sans-serif;
 }
 
 .make-list-container {
