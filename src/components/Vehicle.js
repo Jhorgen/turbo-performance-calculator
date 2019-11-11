@@ -7,7 +7,8 @@ class Vehicle extends React.Component {
     this.state = {
       newHorsepower: null,
       newTorque:  null,
-      selectValue: 0
+      selectValue: 0,
+      upgradesRequired: null
     }
   }
 
@@ -19,6 +20,7 @@ class Vehicle extends React.Component {
      let torqueResult = parseInt(torque) + parseInt(psi) + parseFloat(this.state.selectValue)
 
      console.log(horsepower, torque, psi);
+
       this.setState({newHorsepower: 'Turbocharged horsepower: ' + horsepowerResult, newTorque: 'Turbocharged torque: ' + torqueResult})
     }
 
@@ -26,6 +28,20 @@ class Vehicle extends React.Component {
     this.setState({...this.state, selectValue: e.target.value});
     console.log(this.state.selectValue);
   }
+
+  testerTest = () => {
+    let horsepower = +this.state.newHorsepower.replace(/[^0-9.]/g,"");
+
+    if (horsepower > 500) {
+    console.log('Test');
+    this.setState({
+      upgradesRequired: "Upgrades required!"
+    })
+  }
+  else {
+    console.log('tester');
+  }
+}
 
 render() {
   let psi
@@ -44,7 +60,7 @@ Torque: {this.props.vehicle.torque}<br/>
     <select onChange={this.callThis} >
     <option value=''>Select turbo</option>
     <option value='0.5'>GT28R</option>
-    <option value= '1'>K03</option>
+    <option value='1'>K03</option>
     </select>
     <input ref={(input) => {psi = input;}} class='psi-input' type='number' />
     <button>Submit</button>
@@ -53,6 +69,8 @@ Torque: {this.props.vehicle.torque}<br/>
     <h1>{this.state.newHorsepower}</h1>
     <h1>{this.state.newTorque}</h1>
     </div>
+    <button onClick={this.testerTest}></button>
+    <h2>{this.state.upgradesRequired}</h2>
    </div>
  </div>
   );
