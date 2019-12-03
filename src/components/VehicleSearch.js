@@ -8,7 +8,6 @@ import alfa_romeo from "./../img/alfabackground.jpg";
 import toyota from "./../img/toyotabackground.jpg";
 import lexus from "./../img/lexusbackground.jpg";
 import bmw from "./../img/bmwbackground.jpg";
-
 import subaru from "./../img/subarubackground.jpg";
 import mclaren from "./../img/mclarenbackground.jpg";
 import lotus from "./../img/lotusbackground.jpg";
@@ -22,6 +21,10 @@ import landrover from "./../img/landroverbackground.jpg";
 import insuzu from "./../img/insuzubackground.jpg";
 import ford from "./../img/fordbackground.jpg";
 import ferrari from "./../img/ferraribackground.jpg";
+
+import {Button} from 'reactstrap';
+import {Input} from 'reactstrap';
+import { Col, Form, FormGroup, Label, FormText } from 'reactstrap';
 
 function imageForMake(make) {
   switch (make) {
@@ -87,26 +90,38 @@ const VehicleSearch = props => {
             );
           }}
         >
-          <input
+          <FormGroup row>
+            <Col sm={3}>
+          <Input
             placeholder="Year"
             ref={input => {
               year = input;
             }}
           />
-          <span className="make-form-prop">{props.make}</span>
-          <input
+        </Col>
+        <Col sm={1}>
+        <span className="make-form-prop">{props.make}</span>
+        </Col>
+          <Col sm={3}>
+          <Input
             placeholder="Model"
             ref={input => {
               model = input;
             }}
           />
-          <input
+      </Col>
+      <Col sm={3}>
+        <Input
             placeholder="Trim"
             ref={input => {
               trim = input;
             }}
           />
-          <button>Submit</button>
+        </Col>
+        <Col sm={2}>
+        <Button color="info">Submit</Button>{' '}
+        </Col>
+          </FormGroup>
         </form>
         <div className="vehicle-result">
           {props.loading ? (

@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { Button } from 'reactstrap';
 
 class Vehicle extends React.Component {
   constructor(props) {
@@ -63,7 +64,7 @@ Torque: {this.props.vehicle.torque}<br/>
     <option value='1'>K03</option>
     </select>
     <input ref={(input) => {psi = input;}} class='psi-input' type='number' />
-    <button>Submit</button>
+    <Button color="info">Submit</Button>{' '}
     </form>
     <div>
     <h1>{this.state.newHorsepower}</h1>
