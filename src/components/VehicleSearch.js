@@ -70,7 +70,7 @@ const VehicleSearch = props => {
     backgroundSize: "cover",
     backgroundPosition: "center",
     width: "100%",
-    height: "80rem"
+    height: "100vh"
   };
   let model = null;
   let year = null;
