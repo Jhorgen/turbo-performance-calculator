@@ -81,7 +81,7 @@ class VehicleSearch extends React.Component {
   testHandle(vehicles) {
     console.log('test');
     if(this.props.vehicles.length === 0 ) {
-    this.setState({noResults: <div class="no-results">Sorry, no results found!</div>})
+    this.setState({noResults: <p>Sorry, no results found!</p>})
     }
   }
 
@@ -158,10 +158,10 @@ class VehicleSearch extends React.Component {
                 ) : this.props.error ? (
                   <p>Loading...</p>
                 ) : (
-                  this.props.vehicles.map((vehicle, test) => <Vehicle vehicle={vehicle} test={test} key={test} onClick={() => this.handleThisThing(test)} />)
+                  this.props.vehicles.map((vehicle, test) => <Vehicle vehicle={vehicle} test={test} key={test}  />)
                 )}
               </div>
-              <Row>
+              <Row className="justify-content-center text-white">
                 {this.state.noResults}
               </Row>
             </div>

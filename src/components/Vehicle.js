@@ -12,7 +12,8 @@ class Vehicle extends React.Component {
       selectValue: 0,
       upgradesRequired: null,
       active: null,
-      active2: this.props.test
+      active2: this.props.test,
+      showing: true
     }
   }
 
@@ -47,7 +48,9 @@ class Vehicle extends React.Component {
   }
 }
 
-handleClick(vehicle, test, vehicles) {
+handleClick(showing) {
+  this.setState({ showing: !showing })
+  console.log(this.state.showing);
 
 this.setState({active: this.props.test})
 console.log(this.props.test);
@@ -59,6 +62,8 @@ console.log(this.props.vehicles.test);
 
 
 render() {
+  const { showing } = this.state;
+
   var unclickedStyle = {
     color: "green"
   }
@@ -70,7 +75,8 @@ render() {
   let psi
   return (
     <div>
-    <div onClick={() => this.handleClick(this.props.test)}>
+      { showing
+  ?  <div onClick={() => this.handleClick(showing)}>
   Make: {this.props.vehicle.make}<br/>
 <span
   style={this.state.active === this.state.active2 ? clickedStyle : unclickedStyle }>
@@ -80,6 +86,8 @@ Trim: {this.props.vehicle.trim}<br/>
 Horsepower: {this.props.vehicle.horsepower}<br/>
 Torque: {this.props.vehicle.torque}<br/>
    </div>
+   : null
+   }
    <div>
      <form onSubmit={(e) => this.RunThis(e, this.props.vehicle.horsepower, this.props.vehicle.torque, psi.value)}>
     <select onChange={this.callThis} >
