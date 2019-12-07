@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { Button } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 
 class Vehicle extends React.Component {
   constructor(props) {
@@ -9,7 +10,9 @@ class Vehicle extends React.Component {
       newHorsepower: null,
       newTorque:  null,
       selectValue: 0,
-      upgradesRequired: null
+      upgradesRequired: null,
+      active: null,
+      active2: this.props.test
     }
   }
 
@@ -44,13 +47,34 @@ class Vehicle extends React.Component {
   }
 }
 
+handleClick(vehicle, test, vehicles) {
+
+this.setState({active: this.props.test})
+console.log(this.props.test);
+
+console.log(this.props.vehicles.test);
+
+
+}
+
+
 render() {
+  var unclickedStyle = {
+    color: "green"
+  }
+
+  var clickedStyle = {
+    color: "blue"
+  }
+
   let psi
   return (
     <div>
-    <div>
+    <div onClick={() => this.handleClick(this.props.test)}>
   Make: {this.props.vehicle.make}<br/>
-Year: {this.props.vehicle.year}<br/>
+<span
+  style={this.state.active === this.state.active2 ? clickedStyle : unclickedStyle }>
+  Year: {this.props.vehicle.year}<br/></span>
 Model: {this.props.vehicle.model}<br/>
 Trim: {this.props.vehicle.trim}<br/>
 Horsepower: {this.props.vehicle.horsepower}<br/>

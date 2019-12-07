@@ -6,8 +6,8 @@ export const requestVehicleSuccess = (data) => {
   return { type: 'REQUESTED_VEHICLE_SUCCEEDED', vehicles: data }
 };
 
-const requestVehicleError = () => {
-  return { type: 'REQUESTED_VEHICLE_FAILED' }
+const requestVehicleError = (err) => {
+  return { type: 'REQUESTED_VEHICLE_FAILED', payload: err }
 };
 
 export const fetchVehicle = (make, model, year, trim) => {
@@ -18,7 +18,9 @@ export const fetchVehicle = (make, model, year, trim) => {
       .then(
         data => { console.log('data', data);
         dispatch(requestVehicleSuccess(data))},
-        err => dispatch(requestVehicleError())
+        err => console.log('error', err),
+        dispatch(requestVehicleError())
+
       );
   }
 };

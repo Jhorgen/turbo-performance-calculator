@@ -1,9 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchVehicle } from "./../actions/index";
-import Vehicle from "./Vehicle";
 import VehicleSearch from "./VehicleSearch";
-import RunThis from "./Vehicle";
 import "./../App.css";
 
 const App = props => {

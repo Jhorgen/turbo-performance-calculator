@@ -3,7 +3,6 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import { ConnectedApp } from "./App";
 import IntroPage from "./IntroPage";
 import MakeSelect from "./MakeSelect";
-import Vehicle from "./Vehicle";
 import "../App.css";
 
 function Routes() {
