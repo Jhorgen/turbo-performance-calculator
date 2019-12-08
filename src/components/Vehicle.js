@@ -17,7 +17,7 @@ class Vehicle extends React.Component {
       turboMenu: false,
       selectedTrim: null,
       newnew: true,
-      selectColor: null
+      selectColor: 'white'
     }
   }
 
@@ -74,12 +74,7 @@ console.log(this.props.vehicles.test);
 }
 
 newnewfunc(selectColor) {
-  let clickedStyle = {
-    color: 'black'
-  }
-  console.log(clickedStyle);
-  this.setState({selectColor: clickedStyle})
-  console.log('test');
+
   console.log(this.state.selectColor);
 }
 
@@ -93,7 +88,7 @@ render() {
 
   let testernest={
     color: 'blue',
-    background: 'white'
+    background: 'white',
   }
 
   var unclickedStyle = {
@@ -108,10 +103,10 @@ render() {
   return (
     <div>
 
-  { showing
-    ? <div onClick={() => this.handleClick()}><p style={this.state.selectColor}>{this.props.vehicle.trim}</p></div>
-    : null
-  }
+
+    <div onClick={() => this.handleClick()}><p>{this.props.vehicle.trim}</p></div>
+
+
 
 
    { turboMenu

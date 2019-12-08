@@ -29,7 +29,8 @@ class VehicleSearch extends React.Component {
     super(props)
     this.state = {
       noResults: null,
-      change: 'white'
+      change: 'white',
+      button: null,
     }
   }
 
@@ -86,8 +87,19 @@ class VehicleSearch extends React.Component {
     }
   }
 
-  testThings(change) {
-    this.setState({change: 'black'})
+  testThings(change, button) {
+    this.setState({ change: 'black' })
+    this.setState({ button: <div style={{color: 'white'}}>
+    <Link to={{ pathname: "/vehicles",
+      state: { make: this.props.make}}
+    }>
+<button onClick={() => window.location.reload()}>Go back</button></Link></div>  })
+    console.log(this.state.change);
+  }
+
+  goBack(change, button) {
+    this.setState({change: 'white'})
+    this.setState({button: null})
   }
 
 
@@ -104,7 +116,7 @@ class VehicleSearch extends React.Component {
       let model = null;
       let year = null;
       let trim = null;
-      let x ="test"
+
       return (
         <div style={backgroundStyle}>
 
@@ -157,17 +169,17 @@ class VehicleSearch extends React.Component {
               </Form>
             </div>
               <div onClick={() => this.testThings()} style={{color: this.state.change}} className="vehicle-result">
-
                 {this.props.loading ? (
                   <p className="loading">?</p>
                 ) : this.props.error ? (
                   <p>Loading...</p>
                 ) : (
-                  this.props.vehicles.map((vehicle, test) => <Vehicle vehicle={vehicle} test={test} key={test} onClick={() => this.handleThisThing(test)} />)
+                  this.props.vehicles.map((vehicle, test) => <Vehicle vehicle={vehicle} test={test} key={test} />)
                 )}
               </div>
               <Row className="justify-content-center text-white">
                 {this.state.noResults}
+                {this.state.button}
               </Row>
             </div>
         );
