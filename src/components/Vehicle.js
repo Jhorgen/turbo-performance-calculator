@@ -57,7 +57,7 @@ handleClick(turboMenu, selectedTrim, none) {
   console.log(this.props.changed);
   console.log(this.props.vehicle);
   this.setState({selectedTrim:
-    <div>
+    <div className="1">
       <Row>
       <Col sm={3}>{this.props.vehicle.year}</Col>
       <Col sm={3}>{this.props.vehicle.make}</Col>
@@ -106,7 +106,7 @@ render() {
 
   let psi
   return (
-    <div>
+    <div className={this.props.containerAdjust ? 'vehicle-container': null} style={{width: this.props.widthAdjust}}>
 
      <div>
 
@@ -117,8 +117,8 @@ render() {
 
 
    { turboMenu
-   ? <div style={testernest} onClick={() => this.newnewfunc(clickedStyle)}>
-    <div> {this.state.selectedTrim}</div>
+   ? <div className="3" style={testernest} onClick={() => this.newnewfunc(clickedStyle)}>
+    <div className="4"> {this.state.selectedTrim}</div>
      <form onSubmit={(e) => this.RunThis(e, this.props.vehicle.horsepower, this.props.vehicle.torque, psi.value)}>
     <select onChange={this.callThis} >
     <option value=''>Select turbo</option>

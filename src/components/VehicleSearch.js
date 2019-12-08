@@ -32,7 +32,9 @@ class VehicleSearch extends React.Component {
       change: 'white',
       button: null,
       changed: '',
-      format: ''
+      format: '',
+      widthAdjust: '',
+      containerAdjust: false
     }
   }
 
@@ -89,7 +91,9 @@ class VehicleSearch extends React.Component {
     }
   }
 
-  testThings(change, button, format) {
+  testThings(change, button, format, containerAdjust) {
+    this.setState({ containerAdjust: !containerAdjust })
+    this.setState({ widthAdjust: '100%' })
     this.setState({ changed: 'none'})
     this.setState({ format: 'center'})
     this.setState({ change: 'black' })
@@ -102,6 +106,8 @@ class VehicleSearch extends React.Component {
     if(this.state.button !== null ) {
     this.setState({noResults: <p>Sorry, no results found!</p>})
     }
+
+console.log(this.state.containerAdjust);
   }
 
 
@@ -176,13 +182,13 @@ class VehicleSearch extends React.Component {
                 </FormGroup>
               </Form>
             </div>
-              <div onClick={() => this.testThings()} style={{color: this.state.change, justifyContent: this.state.format}} className="vehicle-result">
+              <div className="5" onClick={() => this.testThings()} style={{color: this.state.change, justifyContent: this.state.format}} className="vehicle-result">
                 {this.props.loading ? (
                   <p className="loading">?</p>
                 ) : this.props.error ? (
                   <p>Loading...</p>
                 ) : (
-                  this.props.vehicles.map((vehicle, test) => <Vehicle vehicle={vehicle} test={test} key={test} changed={this.state.changed} />)
+                  this.props.vehicles.map((vehicle, test) => <Vehicle vehicle={vehicle} test={test} key={test} changed={this.state.changed} widthAdjust={this.state.widthAdjust} containerAdjust={this.state.containerAdjust} />)
                 )}
               </div>
               <Row className="justify-content-center text-white">

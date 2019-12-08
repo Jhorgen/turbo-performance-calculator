@@ -191,3 +191,7 @@
 .no-results {
   color: white;
 }
+
+.vehicle-container {
+  font-size: 2rem;
+}
