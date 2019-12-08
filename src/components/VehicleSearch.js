@@ -28,7 +28,8 @@ class VehicleSearch extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      noResults: null
+      noResults: null,
+      change: 'white'
     }
   }
 
@@ -83,6 +84,10 @@ class VehicleSearch extends React.Component {
     if(this.props.vehicles.length === 0 ) {
     this.setState({noResults: <p>Sorry, no results found!</p>})
     }
+  }
+
+  testThings(change) {
+    this.setState({change: 'black'})
   }
 
 
@@ -151,14 +156,14 @@ class VehicleSearch extends React.Component {
                 </FormGroup>
               </Form>
             </div>
-              <div className="vehicle-result">
+              <div onClick={() => this.testThings()} style={{color: this.state.change}} className="vehicle-result">
 
                 {this.props.loading ? (
                   <p className="loading">?</p>
                 ) : this.props.error ? (
                   <p>Loading...</p>
                 ) : (
-                  this.props.vehicles.map((vehicle, test) => <Vehicle vehicle={vehicle} test={test} key={test}  />)
+                  this.props.vehicles.map((vehicle, test) => <Vehicle vehicle={vehicle} test={test} key={test} onClick={() => this.handleThisThing(test)} />)
                 )}
               </div>
               <Row className="justify-content-center text-white">

@@ -13,7 +13,11 @@ class Vehicle extends React.Component {
       upgradesRequired: null,
       active: null,
       active2: this.props.test,
-      showing: true
+      showing: true,
+      turboMenu: false,
+      selectedTrim: null,
+      newnew: true,
+      selectColor: null
     }
   }
 
@@ -48,47 +52,71 @@ class Vehicle extends React.Component {
   }
 }
 
-handleClick(showing) {
-  this.setState({ showing: !showing })
-  console.log(this.state.showing);
+handleClick(turboMenu, selectedTrim, showing) {
+  console.log(this.props.vehicle);
+  this.setState({selectedTrim:
+    <div>{this.props.vehicle.make}<br/>
+      {this.props.vehicle.year}<br/>
+      {this.props.vehicle.model}<br/>
+      {this.props.vehicle.trim}<br/>
+      {this.props.vehicle.horsepower}<br/>
+      {this.props.vehicle.torque}<br/>
+    </div>})
+
+  console.log("trim:", selectedTrim);
+
+  this.setState({ turboMenu: !turboMenu})
 
 this.setState({active: this.props.test})
 console.log(this.props.test);
 
 console.log(this.props.vehicles.test);
-
-
 }
+
+newnewfunc(selectColor) {
+  let clickedStyle = {
+    color: 'black'
+  }
+  console.log(clickedStyle);
+  this.setState({selectColor: clickedStyle})
+  console.log('test');
+  console.log(this.state.selectColor);
+}
+
+
 
 
 render() {
   const { showing } = this.state;
+  const { turboMenu } = this.state;
+  const { selectedTrim } = this.state;
+
+  let testernest={
+    color: 'blue',
+    background: 'white'
+  }
 
   var unclickedStyle = {
-    color: "green"
+    color: 'black'
   }
 
   var clickedStyle = {
-    color: "blue"
+    color: "white"
   }
 
   let psi
   return (
     <div>
-      { showing
-  ?  <div onClick={() => this.handleClick(showing)}>
-  Make: {this.props.vehicle.make}<br/>
-<span
-  style={this.state.active === this.state.active2 ? clickedStyle : unclickedStyle }>
-  Year: {this.props.vehicle.year}<br/></span>
-Model: {this.props.vehicle.model}<br/>
-Trim: {this.props.vehicle.trim}<br/>
-Horsepower: {this.props.vehicle.horsepower}<br/>
-Torque: {this.props.vehicle.torque}<br/>
-   </div>
-   : null
-   }
-   <div>
+
+  { showing
+    ? <div onClick={() => this.handleClick()}><p style={this.state.selectColor}>{this.props.vehicle.trim}</p></div>
+    : null
+  }
+
+
+   { turboMenu
+   ? <div style={testernest} onClick={() => this.newnewfunc(clickedStyle)}>
+    {this.state.selectedTrim}
      <form onSubmit={(e) => this.RunThis(e, this.props.vehicle.horsepower, this.props.vehicle.torque, psi.value)}>
     <select onChange={this.callThis} >
     <option value=''>Select turbo</option>
@@ -105,6 +133,8 @@ Torque: {this.props.vehicle.torque}<br/>
     <button onClick={this.testerTest}></button>
     <h2>{this.state.upgradesRequired}</h2>
    </div>
+     :null
+   }
  </div>
   );
 }
