@@ -31,6 +31,8 @@ class VehicleSearch extends React.Component {
       noResults: null,
       change: 'white',
       button: null,
+      changed: '',
+      format: ''
     }
   }
 
@@ -80,22 +82,28 @@ class VehicleSearch extends React.Component {
     console.log(xyz);
   }
 
-  testHandle(vehicles) {
+  testHandle(vehicles, button) {
     console.log('test');
-    if(this.props.vehicles.length === 0 ) {
+    if(this.state.button == true ) {
     this.setState({noResults: <p>Sorry, no results found!</p>})
     }
   }
 
-  testThings(change, button) {
+  testThings(change, button, format) {
+    this.setState({ changed: 'none'})
+    this.setState({ format: 'center'})
     this.setState({ change: 'black' })
     this.setState({ button: <div style={{color: 'white'}}>
     <Link to={{ pathname: "/vehicles",
       state: { make: this.props.make}}
     }>
-<button onClick={() => window.location.reload()}>Go back</button></Link></div>  })
+<Button class="secondary" onClick={() => window.location.reload()}>Search again!</Button></Link></div>  })
     console.log(this.state.change);
+    if(this.state.button !== null ) {
+    this.setState({noResults: <p>Sorry, no results found!</p>})
+    }
   }
+
 
   goBack(change, button) {
     this.setState({change: 'white'})
@@ -125,7 +133,7 @@ class VehicleSearch extends React.Component {
           </Link>
           <h1 class="make-header">{this.props.make}</h1>
 
-          <div className="input-form">
+          <div style={{display: this.state.changed}} className="input-form">
             <Form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -168,13 +176,13 @@ class VehicleSearch extends React.Component {
                 </FormGroup>
               </Form>
             </div>
-              <div onClick={() => this.testThings()} style={{color: this.state.change}} className="vehicle-result">
+              <div onClick={() => this.testThings()} style={{color: this.state.change, justifyContent: this.state.format}} className="vehicle-result">
                 {this.props.loading ? (
                   <p className="loading">?</p>
                 ) : this.props.error ? (
                   <p>Loading...</p>
                 ) : (
-                  this.props.vehicles.map((vehicle, test) => <Vehicle vehicle={vehicle} test={test} key={test} />)
+                  this.props.vehicles.map((vehicle, test) => <Vehicle vehicle={vehicle} test={test} key={test} changed={this.state.changed} />)
                 )}
               </div>
               <Row className="justify-content-center text-white">

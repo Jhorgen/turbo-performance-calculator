@@ -13,7 +13,7 @@ class Vehicle extends React.Component {
       upgradesRequired: null,
       active: null,
       active2: this.props.test,
-      showing: true,
+      none: this.props.changed,
       turboMenu: false,
       selectedTrim: null,
       newnew: true,
@@ -52,13 +52,18 @@ class Vehicle extends React.Component {
   }
 }
 
-handleClick(turboMenu, selectedTrim, showing) {
+handleClick(turboMenu, selectedTrim, none) {
+  this.setState({none: this.props.changed})
+  console.log(this.props.changed);
   console.log(this.props.vehicle);
   this.setState({selectedTrim:
-    <div>{this.props.vehicle.make}<br/>
-      {this.props.vehicle.year}<br/>
-      {this.props.vehicle.model}<br/>
-      {this.props.vehicle.trim}<br/>
+    <div>
+      <Row>
+      <Col sm={3}>{this.props.vehicle.year}</Col>
+      <Col sm={3}>{this.props.vehicle.make}</Col>
+      <Col sm={3}>{this.props.vehicle.model}</Col>
+      <Col sm={3}>{this.props.vehicle.trim}</Col>
+      </Row><br/>
       {this.props.vehicle.horsepower}<br/>
       {this.props.vehicle.torque}<br/>
     </div>})
@@ -87,8 +92,8 @@ render() {
   const { selectedTrim } = this.state;
 
   let testernest={
-    color: 'blue',
-    background: 'white',
+    color: 'white',
+    background: '#00000042'
   }
 
   var unclickedStyle = {
@@ -103,15 +108,17 @@ render() {
   return (
     <div>
 
+     <div>
 
-    <div onClick={() => this.handleClick()}><p>{this.props.vehicle.trim}</p></div>
+    <div style={{display: this.props.changed}} onClick={() => this.handleClick()}><p>{this.props.vehicle.trim}</p></div>
 
+    </div>
 
 
 
    { turboMenu
    ? <div style={testernest} onClick={() => this.newnewfunc(clickedStyle)}>
-    {this.state.selectedTrim}
+    <div> {this.state.selectedTrim}</div>
      <form onSubmit={(e) => this.RunThis(e, this.props.vehicle.horsepower, this.props.vehicle.torque, psi.value)}>
     <select onChange={this.callThis} >
     <option value=''>Select turbo</option>
@@ -119,7 +126,7 @@ render() {
     <option value='1'>K03</option>
     </select>
     <input ref={(input) => {psi = input;}} class='psi-input' type='number' />
-    <Button color="info">Submit</Button>{' '}
+    <Button>Submit</Button>{' '}
     </form>
     <div>
     <h1>{this.state.newHorsepower}</h1>
@@ -131,6 +138,7 @@ render() {
      :null
    }
  </div>
+
   );
 }
 }
