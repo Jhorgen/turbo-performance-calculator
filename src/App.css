@@ -78,7 +78,7 @@
 
 .vehicle-result {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   color: white;
   margin-top: 2rem;

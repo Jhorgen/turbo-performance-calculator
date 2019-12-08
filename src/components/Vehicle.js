@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { Button } from 'reactstrap';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Input, Button, Label } from 'reactstrap';
 
 class Vehicle extends React.Component {
   constructor(props) {
@@ -58,15 +57,23 @@ handleClick(turboMenu, selectedTrim, none) {
   console.log(this.props.vehicle);
   this.setState({selectedTrim:
     <div className="1">
-      <Row>
-      <Col sm={3}>{this.props.vehicle.year}</Col>
-      <Col sm={3}>{this.props.vehicle.make}</Col>
-      <Col sm={3}>{this.props.vehicle.model}</Col>
-      <Col sm={3}>{this.props.vehicle.trim}</Col>
+      <Row className="justify-content-center">
+      <Col sm={1}>{this.props.vehicle.year}</Col>
+      <Col sm={1}>{this.props.vehicle.make}</Col>
+      <Col sm={1}>{this.props.vehicle.model}</Col>
+      <Col sm={1}>{this.props.vehicle.trim}</Col>
       </Row><br/>
-      {this.props.vehicle.horsepower}<br/>
-      {this.props.vehicle.torque}<br/>
-    </div>})
+    <Row className="justify-content-center mb-3">
+      <Col sm={4}>
+    <span style={{fontSize: '1.2rem'}}>Standard horsepower: <strong style={{textShadow: '1px 1px 1px crimson'}}>{this.props.vehicle.horsepower}</strong></span><br/>
+      </Col>
+      <Col sm={4}>
+    <span style={{fontSize: '1.2rem'}}>Standard torque: <strong style={{textShadow: '1px 1px 1px crimson'}}>{this.props.vehicle.torque}</strong></span><br/>
+      </Col>
+    </Row>
+  <hr style={{background: 'white'}} />
+    </div>
+        })
 
   console.log("trim:", selectedTrim);
 
@@ -108,31 +115,35 @@ render() {
   return (
     <div className={this.props.containerAdjust ? 'vehicle-container': null} style={{width: this.props.widthAdjust}}>
 
-     <div>
-
     <div style={{display: this.props.changed}} onClick={() => this.handleClick()}><p>{this.props.vehicle.trim}</p></div>
 
-    </div>
 
 
 
    { turboMenu
-   ? <div className="3" style={testernest} onClick={() => this.newnewfunc(clickedStyle)}>
+   ? <div className="3" style={testernest} >
     <div className="4"> {this.state.selectedTrim}</div>
      <form onSubmit={(e) => this.RunThis(e, this.props.vehicle.horsepower, this.props.vehicle.torque, psi.value)}>
-    <select onChange={this.callThis} >
+       <Row className="justify-content-center">
+         <Col sm={4}>
+           <Label>Turbocharger Selection</Label>
+    <Input type="select" onChange={this.callThis} >
     <option value=''>Select turbo</option>
     <option value='0.5'>GT28R</option>
     <option value='1'>K03</option>
-    </select>
-    <input ref={(input) => {psi = input;}} class='psi-input' type='number' />
-    <Button>Submit</Button>{' '}
+    </Input>
+    </Col>
+    <Col sm={4}>
+      <Label>Boost Pressure (PSI)</Label>
+    <input ref={(input) => {psi = input;}} class='psi-input input-bs' type='number' placeholder="1" />
+    </Col>
+    </Row>
+    <Button className="mt-4" size="lg" color="info">Submit</Button>{' '}
     </form>
     <div>
     <h1>{this.state.newHorsepower}</h1>
     <h1>{this.state.newTorque}</h1>
     </div>
-    <button onClick={this.testerTest}></button>
     <h2>{this.state.upgradesRequired}</h2>
    </div>
      :null

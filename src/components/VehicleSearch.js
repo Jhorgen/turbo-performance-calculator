@@ -23,7 +23,6 @@ import ferrari from "./../img/ferraribackground.jpg";
 import { Col, Form, FormGroup, Button, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-
 class VehicleSearch extends React.Component {
   constructor(props) {
     super(props)
@@ -79,13 +78,7 @@ class VehicleSearch extends React.Component {
     }
   }
 
-  handleThisThing(test) {
-    const xyz = test
-    console.log(xyz);
-  }
-
   testHandle(vehicles, button) {
-    console.log('test');
     if(this.state.button == true ) {
     this.setState({noResults: <p>Sorry, no results found!</p>})
     }
@@ -102,22 +95,18 @@ class VehicleSearch extends React.Component {
       state: { make: this.props.make}}
     }>
 <Button class="secondary" onClick={() => window.location.reload()}>Search again!</Button></Link></div>  })
-    console.log(this.state.change);
     if(this.state.button !== null ) {
     this.setState({noResults: <p>Sorry, no results found!</p>})
     }
-
-console.log(this.state.containerAdjust);
   }
-
 
   goBack(change, button) {
     this.setState({change: 'white'})
     this.setState({button: null})
   }
 
-
   render() {
+
     var backgroundStyle = {
       backgroundImage: `url(${this.imageForMake(this.props.make)})`,
       backgroundSize: "cover",
@@ -133,12 +122,10 @@ console.log(this.state.containerAdjust);
 
       return (
         <div style={backgroundStyle}>
-
           <Link to='/makes'>
           <Button color="info">Go Back</Button>{' '}
           </Link>
-          <h1 class="make-header">{this.props.make}</h1>
-
+          <h1 style={{display: this.state.changed}} class="make-header">{this.props.make}</h1>
           <div style={{display: this.state.changed}} className="input-form">
             <Form
               onSubmit={(e) => {
