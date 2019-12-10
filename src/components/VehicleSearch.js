@@ -20,6 +20,13 @@ import landrover from "./../img/landroverbackground.jpg";
 import insuzu from "./../img/insuzubackground.jpg";
 import ford from "./../img/fordbackground.jpg";
 import ferrari from "./../img/ferraribackground.jpg";
+import hyundai from "./../img/hyundaibackground.jpg"
+import cadillac from "./../img/cadillacbackground.jpg";
+import mazda from "./../img/mazdabackground.jpg";
+import kia from "./../img/kiabackground.jpg";
+import infiniti from "./../img/infinitibackground.jpg";
+import honda from "./../img/hondabackground.jpg";
+import acura from "./../img/acurabackground.jpg";
 import { Col, Form, FormGroup, Button, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
@@ -34,7 +41,13 @@ class VehicleSearch extends React.Component {
       format: '',
       widthAdjust: '',
       containerAdjust: false,
-      correctMake: ''
+      correctMake: '',
+      year: '',
+      model: '',
+      formErrors: {year: '', model: ''},
+      yearValid: false,
+      modelValid: false,
+      formValid: false
     }
   }
 
@@ -76,13 +89,27 @@ class VehicleSearch extends React.Component {
       return ford;
       case "Ferrari":
       return ferrari;
+      case "Cadillac":
+      return cadillac;
+      case "Mazda":
+      return mazda;
+      case "Hyundai":
+      return hyundai;
+      case "Acura":
+      return acura;
+      case "Kia":
+      return kia;
+      case "Infiniti":
+      return infiniti;
+      case "Honda":
+      return honda;
     }
   }
 
-  handleMakeChange() {
+  handleMakeChange(vehicles) {
       this.setState({correctMake: true})
+      console.log(this.props.vehicles.length);
     }
-
 
   testThings(change, button, format, containerAdjust) {
     this.setState({ containerAdjust: !containerAdjust })
@@ -104,6 +131,7 @@ class VehicleSearch extends React.Component {
     this.setState({change: 'white'})
     this.setState({button: null})
   }
+
 
   render() {
 
@@ -180,7 +208,7 @@ class VehicleSearch extends React.Component {
                 )}
               </div>
               <Row className="justify-content-center text-white">
-                {this.state.noResults}
+
                 {this.state.button}
               </Row>
             </div>
