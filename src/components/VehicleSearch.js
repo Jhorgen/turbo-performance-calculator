@@ -33,7 +33,8 @@ class VehicleSearch extends React.Component {
       changed: '',
       format: '',
       widthAdjust: '',
-      containerAdjust: false
+      containerAdjust: false,
+      correctMake: ''
     }
   }
 
@@ -78,11 +79,10 @@ class VehicleSearch extends React.Component {
     }
   }
 
-  testHandle(vehicles, button) {
-    if(this.state.button == true ) {
-    this.setState({noResults: <p>Sorry, no results found!</p>})
+  handleMakeChange() {
+      this.setState({correctMake: true})
     }
-  }
+
 
   testThings(change, button, format, containerAdjust) {
     this.setState({ containerAdjust: !containerAdjust })
@@ -164,7 +164,7 @@ class VehicleSearch extends React.Component {
                     />
                 </Col>
                 <Col sm={2}>
-                  <span onClick={() => this.testHandle()}><Button color="info">Submit</Button>{' '}</span>
+                  <span onClick={() => this.handleMakeChange()}><Button color="info">Submit</Button>{' '}</span>
                   </Col>
                 </FormGroup>
               </Form>
@@ -175,7 +175,8 @@ class VehicleSearch extends React.Component {
                 ) : this.props.error ? (
                   <p>Loading...</p>
                 ) : (
-                  this.props.vehicles.map((vehicle, test) => <Vehicle vehicle={vehicle} test={test} key={test} changed={this.state.changed} widthAdjust={this.state.widthAdjust} containerAdjust={this.state.containerAdjust} />)
+                  <p>Select trim</p>,
+                  this.props.vehicles.map((vehicle, test) => <Vehicle vehicle={vehicle} test={test} key={test} changed={this.state.changed} widthAdjust={this.state.widthAdjust} containerAdjust={this.state.containerAdjust} correctMake={this.state.correctMake} />)
                 )}
               </div>
               <Row className="justify-content-center text-white">

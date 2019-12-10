@@ -16,7 +16,8 @@ class Vehicle extends React.Component {
       turboMenu: false,
       selectedTrim: null,
       newnew: true,
-      selectColor: 'white'
+      selectColor: 'white',
+      trimSelection: this.props.correctMake,
     }
   }
 
@@ -91,10 +92,8 @@ newnewfunc(selectColor) {
 }
 
 
-
-
 render() {
-  const { showing } = this.state;
+  const { trimSelection } = this.state;
   const { turboMenu } = this.state;
   const { selectedTrim } = this.state;
 
@@ -113,12 +112,11 @@ render() {
 
   let psi
   return (
-    <div className={this.props.containerAdjust ? 'vehicle-container': null} style={{width: this.props.widthAdjust}}>
-
-    <div style={{display: this.props.changed}} onClick={() => this.handleClick()}><p>{this.props.vehicle.trim}</p></div>
-
-
-
+      <div className={this.props.containerAdjust ? 'vehicle-container': null} style={{width: this.props.widthAdjust}}>
+          { trimSelection
+    ? <div style={{display: this.props.changed}} onClick={() => this.handleClick()}><p>{this.props.vehicle.trim}</p></div>
+  : null
+  }
 
    { turboMenu
    ? <div className="3" style={testernest} >
