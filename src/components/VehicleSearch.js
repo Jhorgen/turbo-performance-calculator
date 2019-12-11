@@ -39,6 +39,8 @@ import volkswagen from "./../img/volkswagenbackground.jpg";
 import dodge from "./../img/dodgebackground.jpg";
 import chrysler from "./../img/chryslerbackground.jpg";
 import buick from "./../img/buickbackground.jpg";
+import mini from "./../img/minibackground.jpg";
+import chevy from "./../img/chevybackground.jpg";
 import jeep from "./../img/jeepbackground.jpg";
 import { Col, Form, FormGroup, Button, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
@@ -142,6 +144,10 @@ class VehicleSearch extends React.Component {
       return buick;
       case "Jeep":
       return jeep;
+      case "Mini":
+      return mini;
+      case "Chevrolet":
+      return chevy;
     }
   }
 
@@ -185,12 +191,12 @@ class VehicleSearch extends React.Component {
 
       let model = null;
       let year = null;
-      let trim = null;
+
 
       return (
         <div style={backgroundStyle}>
           <Link to='/makes'>
-          <Button color="info">Go Back</Button>{' '}
+          <Button className="m-3" color="info">Go Back</Button>{' '}
           </Link>
           <h1 style={{display: this.state.changed}} class="make-header">{this.props.make}</h1>
           <div style={{display: this.state.changed}} className="input-form">
@@ -198,12 +204,12 @@ class VehicleSearch extends React.Component {
               onSubmit={(e) => {
                 e.preventDefault();
                 this.props.dispatch(
-                  fetchVehicle(this.props.make, model.value, year.value, trim.value)
+                  fetchVehicle(this.props.make, model.value, year.value)
                 );
               }}
               >
               <FormGroup row>
-                <Col sm={3}>
+                <Col sm={4}>
                   <input className="input-bs"
                     placeholder="Year"
                     ref={input => {
@@ -211,22 +217,14 @@ class VehicleSearch extends React.Component {
                     }}
                     />
                 </Col>
-                <Col sm={1}>
+                <Col sm={2} className="text-center">
                   <span className="make-form-prop">{this.props.make}</span>
                 </Col>
-                <Col sm={3}>
+                <Col sm={4}>
                   <input className="input-bs"
                     placeholder="Model"
                     ref={input => {
                       model = input;
-                    }}
-                    />
-                </Col>
-                <Col sm={3}>
-                  <input className="input-bs"
-                    placeholder="Trim"
-                    ref={input => {
-                      trim = input;
                     }}
                     />
                 </Col>
