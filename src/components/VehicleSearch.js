@@ -25,8 +25,21 @@ import cadillac from "./../img/cadillacbackground.jpg";
 import mazda from "./../img/mazdabackground.jpg";
 import kia from "./../img/kiabackground.jpg";
 import infiniti from "./../img/infinitibackground.jpg";
+import jaguar from "./../img/jaguarbackground.jpg";
+import mercedes from "./../img/mercedesbackground.jpg";
 import honda from "./../img/hondabackground.jpg";
 import acura from "./../img/acurabackground.jpg";
+import fiat from "./../img/fiatbackground.jpg";
+import saab from "./../img/saabbackground.jpg";
+import aston from "./../img/astonbackground.jpg";
+import volvo from "./../img/volvobackground.jpg";
+import bently from "./../img/bentlybackground.jpg";
+import pontiac from "./../img/pontiacbackground.jpg";
+import volkswagen from "./../img/volkswagenbackground.jpg";
+import dodge from "./../img/dodgebackground.jpg";
+import chrysler from "./../img/chryslerbackground.jpg";
+import buick from "./../img/buickbackground.jpg";
+import jeep from "./../img/jeepbackground.jpg";
 import { Col, Form, FormGroup, Button, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
@@ -103,6 +116,32 @@ class VehicleSearch extends React.Component {
       return infiniti;
       case "Honda":
       return honda;
+      case "Mercedes":
+      return mercedes;
+      case "Jaguar":
+      return jaguar;
+      case "Saab":
+      return saab;
+      case "Volkswagen":
+      return volkswagen;
+      case "Aston Martin":
+      return aston;
+      case "Volvo":
+      return volvo;
+      case "Fiat":
+      return fiat;
+      case "Bently":
+      return bently;
+      case "Pontiac":
+      return pontiac;
+      case "Dodge":
+      return dodge;
+      case "Chrysler":
+      return chrysler;
+      case "Buick":
+      return buick;
+      case "Jeep":
+      return jeep;
     }
   }
 
