@@ -194,3 +194,16 @@
 .vehicle-container {
   font-size: 2rem;
 }
+
+@media (max-width: 500px) {
+    .vehicle-scale {
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .vehicle-scale-2 {
+      display: none;
+    }
+    .vehicle-scale-col {
+      margin-top: 1rem;
+    }
+}

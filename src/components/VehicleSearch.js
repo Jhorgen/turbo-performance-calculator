@@ -51,7 +51,7 @@ class VehicleSearch extends React.Component {
     this.state = {
       noResults: null,
       change: 'white',
-      button: null,
+      button: '',
       changed: '',
       format: '',
       widthAdjust: '',
@@ -153,6 +153,8 @@ class VehicleSearch extends React.Component {
   }
 
   handleMakeChange(vehicle) {
+    console.log('loading:', this.props.loading);
+    console.log('error:', this.props.error);
     setTimeout( () => {
       if(this.props.vehicles.length > 0){
       this.setState({trimNotificaton: <h2>Select trim</h2>})
@@ -161,24 +163,23 @@ class VehicleSearch extends React.Component {
       console.log(this.props.vehicles.length);
     }
         console.log('test')
-    }, 400);
+    }, 500);
       this.setState({correctMake: true})
     }
 
   testThings(change, button, format, containerAdjust) {
+    this.setState({button: "test"})
     this.setState({ containerAdjust: !containerAdjust, trimNotificaton: '' })
     this.setState({ widthAdjust: '100%' })
     this.setState({ changed: 'none'})
     this.setState({ format: 'center'})
     this.setState({ change: 'black' })
+
     this.setState({ button: <div style={{color: 'white'}}>
     <Link to={{ pathname: "/vehicles",
       state: { make: this.props.make}}
     }>
-<Button class="secondary" onClick={() => window.location.reload()}>Search again!</Button></Link></div>  })
-    if(this.state.button !== null ) {
-    this.setState({noResults: <p>Sorry, no results found!</p>})
-    }
+    <Button class="secondary" onClick={() => window.location.reload()}>Search again!</Button></Link></div>  })
   }
 
   goBack(change, button) {
@@ -226,10 +227,10 @@ class VehicleSearch extends React.Component {
                     }}
                     />
                 </Col>
-                <Col sm={2} className="text-center">
+                <Col sm={2} className="text-center vehicle-scale-2">
                   <span className="make-form-prop">{this.props.make}</span>
                 </Col>
-                <Col sm={4}>
+                <Col className="vehicle-scale-col" sm={4}>
                   <input className="input-bs"
                     placeholder="Model"
                     ref={input => {
@@ -238,7 +239,7 @@ class VehicleSearch extends React.Component {
                     />
                 </Col>
                 <Col sm={2}>
-                  <span onClick={() => this.handleMakeChange()}><Button color="info">Submit</Button>{' '}</span>
+                  <span onClick={() => this.handleMakeChange()}><Button className="vehicle-scale" color="info">Submit</Button>{' '}</span>
                   </Col>
                 </FormGroup>
               </Form>
@@ -250,18 +251,15 @@ class VehicleSearch extends React.Component {
 
               <div className="5" onClick={() => this.testThings()} style={{color: this.state.change, justifyContent: this.state.format}} className="vehicle-result">
                 {this.props.loading ? (
-                  <p className="loading">?</p>
+                  <p className="loading">test</p>
                 ) : this.props.error ? (
                   <p>Loading...</p>
                 ) : (
                   this.props.vehicles.map((vehicle, test) => <Vehicle vehicle={vehicle} test={test} key={test} changed={this.state.changed} widthAdjust={this.state.widthAdjust} containerAdjust={this.state.containerAdjust} correctMake={this.state.correctMake} />)
                 )}
-              </div>
-              <Row className="justify-content-center text-white">
-
                 {this.state.button}
-              </Row>
-            </div>
+              </div>
+              </div>
         );
       }
     }
