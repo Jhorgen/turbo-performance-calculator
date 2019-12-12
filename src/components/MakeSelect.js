@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Row, Col} from 'reactstrap'
 import { Link } from "react-router-dom";
 import AlfaRomeo from "./../assets/alfa-romeo.png";
 import Audi from "./../assets/audi.png";
@@ -51,7 +52,7 @@ class MakeSelect extends React.Component {
     this.state = {
       europeanClicked: false,
       importClicked: false,
-      americanClicked: false,
+      domesticClicked: false,
       exoticClicked: false
     };
   }
@@ -63,10 +64,10 @@ class MakeSelect extends React.Component {
     });
   };
 
-  handleAmericanList = () => {
-    let temp = !this.state.americanClicked;
+  handleDomesticList = () => {
+    let temp = !this.state.domesticClicked;
     this.setState({
-      americanClicked: temp
+      domesticClicked: temp
     });
   };
 
@@ -87,10 +88,9 @@ class MakeSelect extends React.Component {
   render() {
     return (
       <div className="make-list-background">
-        <div>
+        <div className="mb-4">
           <h1 className="make-list-header">Make selection</h1>
         </div>
-
         <div
           onClick={() => this.handleEuropeanList()}
           className="make-dropdown"
@@ -100,6 +100,8 @@ class MakeSelect extends React.Component {
         <div className="layer">
           {this.state.europeanClicked && (
             <div className="testtest">
+            <Row className="align-items-center">
+            <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -108,7 +110,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={AstonMartin} className="make-select" />
               </Link>
-
+            </Col>
+            <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -117,7 +120,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={AlfaRomeo} className="make-select" />
               </Link>
-
+            </Col>
+            <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -126,7 +130,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Audi} className="make-select" />
               </Link>
-
+            </Col>
+            <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -135,7 +140,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Bently} className="make-select" />
               </Link>
-
+            </Col>
+            <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -144,7 +150,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={BMW} className="make-select" />
               </Link>
-
+            </Col>
+            <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -153,7 +160,10 @@ class MakeSelect extends React.Component {
               >
                 <img src={Fiat} className="make-select" />
               </Link>
-
+            </Col>
+          </Row>
+            <Row className="align-items-center">
+              <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -162,7 +172,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Maserati} className="make-select" />
               </Link>
-
+              </Col>
+              <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -171,7 +182,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Mercedes} className="make-select" />
               </Link>
-
+            </Col>
+            <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -180,7 +192,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Mini} className="make-select" />
               </Link>
-
+            </Col>
+            <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -189,7 +202,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Jaguar} className="make-select" />
               </Link>
-
+            </Col>
+            <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -198,7 +212,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={LandRover} className="make-select" />
               </Link>
-
+            </Col>
+            <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -207,7 +222,10 @@ class MakeSelect extends React.Component {
               >
                 <img src={Porsche} className="make-select" />
               </Link>
-
+            </Col>
+          </Row>
+          <Row className="align-items-center justify-content-center">
+            <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -216,7 +234,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Saab} className="make-select" />
               </Link>
-
+            </Col>
+            <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -225,7 +244,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Volkswagen} className="make-select" />
               </Link>
-
+            </Col>
+            <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -234,19 +254,23 @@ class MakeSelect extends React.Component {
               >
                 <img src={Volvo} className="make-select" />
               </Link>
-            </div>
+            </Col>
+          </Row>
+        </div>
           )}
         </div>
 
         <div
-          onClick={() => this.handleAmericanList()}
+          onClick={() => this.handleDomesticList()}
           className="make-dropdown"
         >
-          <h1>American</h1>
+          <h1>Domestic</h1>
         </div>
         <div className="layer">
-          {this.state.americanClicked && (
+          {this.state.domesticClicked && (
             <div className="testtest">
+              <Row className="align-items-center">
+                <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -255,7 +279,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Ford} className="make-select" />
               </Link>
-
+                </Col>
+                <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -264,7 +289,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Chevrolet} className="make-select" />
               </Link>
-
+                </Col>
+                <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -273,7 +299,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Cadillac} className="make-select" />
               </Link>
-
+                </Col>
+                <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -282,7 +309,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Dodge} className="make-select" />
               </Link>
-
+                </Col>
+                <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -291,7 +319,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Chrysler} className="make-select" />
               </Link>
-
+                </Col>
+                <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -300,7 +329,10 @@ class MakeSelect extends React.Component {
               >
                 <img src={Buick} className="make-select" />
               </Link>
-
+                </Col>
+              </Row>
+                <Row className="align-items-center justify-content-center">
+                  <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -309,7 +341,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Mercury} className="make-select" />
               </Link>
-
+                </Col>
+                <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -318,7 +351,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Jeep} className="make-select" />
               </Link>
-
+                </Col>
+                <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -327,7 +361,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Pontiac} className="make-select" />
               </Link>
-
+                </Col>
+                <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -336,6 +371,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Saturn} className="make-select" />
               </Link>
+            </Col>
+          </Row>
             </div>
           )}
         </div>
@@ -346,6 +383,8 @@ class MakeSelect extends React.Component {
         <div className="layer">
           {this.state.importClicked && (
             <div className="testtest">
+              <Row className="align-items-center justify-content-center">
+                <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -354,7 +393,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Mazda} className="make-select" />
               </Link>
-
+                </Col>
+                <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -363,7 +403,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Honda} className="make-select" />
               </Link>
-
+                </Col>
+                <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -372,7 +413,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Infiniti} className="make-select" />
               </Link>
-
+                  </Col>
+                  <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -381,7 +423,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Kia} className="make-select" />
               </Link>
-
+                  </Col>
+                  <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -390,7 +433,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Lexus} className="make-select" />
               </Link>
-
+                  </Col>
+                  <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -399,7 +443,10 @@ class MakeSelect extends React.Component {
               >
                 <img src={Acura} className="make-select" />
               </Link>
-
+                  </Col>
+                </Row>
+                <Row className="align-items-center justify-content-center">
+                  <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -408,7 +455,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Hyundai} className="make-select" />
               </Link>
-
+                  </Col>
+                  <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -417,7 +465,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Toyota} className="make-select" />
               </Link>
-
+                  </Col>
+                  <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -426,7 +475,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Nissan} className="make-select" />
               </Link>
-
+                  </Col>
+                  <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -435,7 +485,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Mitsubishi} className="make-select" />
               </Link>
-
+                  </Col>
+                  <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -444,7 +495,10 @@ class MakeSelect extends React.Component {
               >
                 <img src={Subaru} className="make-select" />
               </Link>
-
+                  </Col>
+                </Row>
+                <Row className="align-items-center justify-content-center">
+                  <Col>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -453,6 +507,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Suzuki} className="make-select" />
               </Link>
+                  </Col>
+                </Row>
             </div>
           )}
         </div>
@@ -463,6 +519,8 @@ class MakeSelect extends React.Component {
         <div className="layer">
           {this.state.exoticClicked && (
             <div className="testtest">
+              <Row className="justify-content-center align-items-center">
+                <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -471,7 +529,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Mclaren} className="make-select" />
               </Link>
-
+            </Col>
+            <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -480,7 +539,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Lamborghini} className="make-select" />
               </Link>
-
+            </Col>
+            <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -489,7 +549,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Lotus} className="make-select" />
               </Link>
-
+            </Col>
+            <Col sm={2}>
               <Link
                 to={{
                   pathname: "/vehicles",
@@ -498,6 +559,8 @@ class MakeSelect extends React.Component {
               >
                 <img src={Ferrari} className="make-select" />
               </Link>
+            </Col>
+          </Row>
             </div>
           )}
         </div>

@@ -62,7 +62,8 @@ class VehicleSearch extends React.Component {
       formErrors: {year: '', model: ''},
       yearValid: false,
       modelValid: false,
-      formValid: false
+      formValid: false,
+      trimNotificaton: ""
     }
   }
 
@@ -151,13 +152,21 @@ class VehicleSearch extends React.Component {
     }
   }
 
-  handleMakeChange(vehicles) {
-      this.setState({correctMake: true})
+  handleMakeChange(vehicle) {
+    setTimeout( () => {
+      if(this.props.vehicles.length > 0){
+      this.setState({trimNotificaton: <h2>Select trim</h2>})
+    } else {
+      this.setState({trimNotificaton: <h2>Sorry, no results found.</h2>})
       console.log(this.props.vehicles.length);
+    }
+        console.log('test')
+    }, 400);
+      this.setState({correctMake: true})
     }
 
   testThings(change, button, format, containerAdjust) {
-    this.setState({ containerAdjust: !containerAdjust })
+    this.setState({ containerAdjust: !containerAdjust, trimNotificaton: '' })
     this.setState({ widthAdjust: '100%' })
     this.setState({ changed: 'none'})
     this.setState({ format: 'center'})
@@ -234,13 +243,17 @@ class VehicleSearch extends React.Component {
                 </FormGroup>
               </Form>
             </div>
+
+              <Row className="justify-content-center text-white">
+                {this.state.trimNotificaton}
+              </Row>
+
               <div className="5" onClick={() => this.testThings()} style={{color: this.state.change, justifyContent: this.state.format}} className="vehicle-result">
                 {this.props.loading ? (
                   <p className="loading">?</p>
                 ) : this.props.error ? (
                   <p>Loading...</p>
                 ) : (
-                  <p>Select trim</p>,
                   this.props.vehicles.map((vehicle, test) => <Vehicle vehicle={vehicle} test={test} key={test} changed={this.state.changed} widthAdjust={this.state.widthAdjust} containerAdjust={this.state.containerAdjust} correctMake={this.state.correctMake} />)
                 )}
               </div>
