@@ -22,6 +22,7 @@ function Routes() {
               />
             )}
             path="/vehicles"
+            className="black"
           />
         </Switch>
       </BrowserRouter>

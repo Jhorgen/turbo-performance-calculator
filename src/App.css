@@ -76,13 +76,13 @@
 }
 
 .vehicle-result {
-  display: flex;
+  display: block;
   justify-content: space-evenly;
   flex-wrap: wrap;
   color: white;
   margin-top: 2rem;
   text-align: center;
-  text-size: 45px;
+
 }
 
 .loading {

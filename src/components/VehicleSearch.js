@@ -59,11 +59,12 @@ class VehicleSearch extends React.Component {
       correctMake: '',
       year: '',
       model: '',
-      formErrors: {year: '', model: ''},
       yearValid: false,
       modelValid: false,
       formValid: false,
-      trimNotificaton: ""
+      trimNotificaton: "",
+      backgroundHide: "100vh",
+      backgroundImageHide: true
     }
   }
 
@@ -157,17 +158,25 @@ class VehicleSearch extends React.Component {
     console.log('error:', this.props.error);
     setTimeout( () => {
       if(this.props.vehicles.length > 0){
-      this.setState({trimNotificaton: <h2>Select trim</h2>})
+      this.setState({trimNotificaton: <h2>Select trim</h2>}); this.setState({backgroundImageHide: false})
     } else {
       this.setState({trimNotificaton: <h2>Sorry, no results found.</h2>})
       console.log(this.props.vehicles.length);
     }
-        console.log('test')
+        console.log('first set timeout')
     }, 500);
-      this.setState({correctMake: true})
+    this.setState({correctMake: true})
+    console.log('before', this.state.backgroundHide);
+    setTimeout( () => {
+      if(this.props.vehicles.length > 5) {
+        this.setState({backgroundHide: "100%"})
+        console.log('after', this.state.backgroundHide);
+      }
+    }, 500);
     }
 
-  testThings(change, button, format, containerAdjust) {
+  onSubmit(change, button, format, containerAdjust) {
+    this.setState({backgroundHide: '100vh'})
     this.setState({button: "test"})
     this.setState({ containerAdjust: !containerAdjust, trimNotificaton: '' })
     this.setState({ widthAdjust: '100%' })
@@ -187,7 +196,6 @@ class VehicleSearch extends React.Component {
     this.setState({button: null})
   }
 
-
   render() {
 
     var backgroundStyle = {
@@ -195,16 +203,23 @@ class VehicleSearch extends React.Component {
       backgroundSize: "cover",
       backgroundPosition: "center",
       width: "100%",
-      height: "100vh",
+      height: this.state.backgroundHide,
       backgroundColor: 'Black'
     };
+
+    var backgroundStyleHidden = {
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      width: "100%",
+      height: this.state.backgroundHide,
+      backgroundColor: 'Black'
+    }
 
       let model = null;
       let year = null;
 
-
       return (
-        <div style={backgroundStyle}>
+        <div style={this.state.backgroundImageHide ? backgroundStyle : backgroundStyleHidden}>
           <Link to='/makes'>
           <Button className="m-3" color="info">Go Back</Button>{' '}
           </Link>
@@ -244,12 +259,10 @@ class VehicleSearch extends React.Component {
                 </FormGroup>
               </Form>
             </div>
-
               <Row className="justify-content-center text-white">
                 {this.state.trimNotificaton}
               </Row>
-
-              <div className="5" onClick={() => this.testThings()} style={{color: this.state.change, justifyContent: this.state.format}} className="vehicle-result">
+              <div className="5" onClick={() => this.onSubmit()} style={{color: this.state.change, justifyContent: this.state.format}} className="vehicle-result">
                 {this.props.loading ? (
                   <p className="loading">test</p>
                 ) : this.props.error ? (

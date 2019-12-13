@@ -75,21 +75,12 @@ handleClick(turboMenu, selectedTrim, none) {
   <hr style={{background: 'white'}} />
     </div>
         })
-
-  console.log("trim:", selectedTrim);
-
-  this.setState({ turboMenu: !turboMenu})
+    this.setState({ turboMenu: !turboMenu})
 
 this.setState({active: this.props.test})
-console.log(this.props.test);
 
-console.log(this.props.vehicles.test);
 }
 
-newnewfunc(selectColor) {
-
-  console.log(this.state.selectColor);
-}
 
 
 render() {
