@@ -158,13 +158,13 @@ class VehicleSearch extends React.Component {
       this.setState({modelInput: '', yearInput: ''})
       this.setState({colAdjust: 5})
       this.setState({buttonChange: ''})
-    }, 400);
+    }, 500);
 
     setTimeout( () => {
       if(this.props.vehicles.length > 0){
       this.setState({trimNotificaton: <h2>Select trim</h2>}); this.setState({backgroundImageHide: false})
     }
-  }, 400);
+  }, 500);
 
     this.setState({correctMake: true})
     setTimeout( () => {
@@ -173,7 +173,7 @@ class VehicleSearch extends React.Component {
       } else {
         this.setState({backgroundHide: "100vh"})
       }
-    }, 300);
+    }, 400);
 
     }
 
@@ -239,7 +239,7 @@ class VehicleSearch extends React.Component {
           <Link to='/makes'>
           <Button className="mt-3 ml-5" color="info">Go Back</Button>
           </Link>
-          <span onClick={() => this.handleMakeChange()}><Button onClick={(e) => {
+          <span style={{display: this.state.changed}} onClick={() => this.handleMakeChange()}><Button onClick={(e) => {
             e.preventDefault();
             this.props.dispatch(
               fetchVehicle(this.props.make, model.value, year.value)
@@ -249,7 +249,7 @@ class VehicleSearch extends React.Component {
 
           <h1 style={{display: this.state.changed}} class="make-header">{this.props.make}</h1>
           <div style={{display: this.state.changed}} className="input-form">
-            <Form
+            <Form className="input-form-adjust"
               onSubmit={(e) => {
                 e.preventDefault();
                 this.props.dispatch(

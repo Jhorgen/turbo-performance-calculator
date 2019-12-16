@@ -159,9 +159,10 @@
   text-shadow: -2px 4px 10px coral;
 }
 
-.input-form {
-  border-radius: 5px;
+.input-form-adjust {
+  width: 50%;
 }
+
 
 .input-bs {
   display: block;
@@ -206,4 +207,28 @@
     .vehicle-scale-col {
       margin-top: 1rem;
     }
+    .input-form-adjust {
+      width: 100%;
+      margin: 1rem;
+    }
+}
+
+@media (max-width: 1100px) {
+  .input-form-adjust {
+  width: 90%
+  }
+}
+
+@media (max-width: 600px) {
+  .input-form-adjust {
+  width: 100%
+  }
+}
+
+.mapped-v:hover {
+  background: #17a2b869;
+  border: 1px solid #17a2b8;
+  border-radius: 5px;
+  transition: 0.3s ease;
+  font-size: 1.1rem;
 }

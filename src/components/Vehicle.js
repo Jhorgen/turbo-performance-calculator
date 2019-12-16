@@ -104,7 +104,9 @@ render() {
   return (
       <div className={this.props.containerAdjust ? 'vehicle-container': null} style={{width: this.props.widthAdjust}}>
           { trimSelection
-    ? <div style={{display: this.props.changed}} onClick={() => this.handleClick()}><p>{this.props.vehicle.trim}</p></div>
+    ? <div className="mapped-v" style={{display: this.props.changed}} onClick={() => this.handleClick()}><Row className="justify-content-center"><p className="pr-2">{this.props.vehicle.year}</p>
+    <p className="pr-2">{this.props.vehicle.model}</p>
+    <p>{this.props.vehicle.trim}</p></Row></div>
   : null
   }
 
