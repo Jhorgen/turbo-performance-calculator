@@ -42,7 +42,6 @@ class Vehicle extends React.Component {
     let horsepower = +this.state.newHorsepower.replace(/[^0-9.]/g,"");
 
     if (horsepower > 500) {
-    console.log('Test');
     this.setState({
       upgradesRequired: "Upgrades required!"
     })

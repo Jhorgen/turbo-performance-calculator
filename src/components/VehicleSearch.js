@@ -49,7 +49,6 @@ class VehicleSearch extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      noResults: null,
       change: 'white',
       button: '',
       changed: '',
@@ -57,17 +56,15 @@ class VehicleSearch extends React.Component {
       widthAdjust: '',
       containerAdjust: false,
       correctMake: '',
-      year: '',
-      model: '',
       yearValid: false,
       modelValid: false,
-      formValid: false,
       trimNotificaton: "",
       backgroundHide: "100vh",
       backgroundImageHide: true,
       buttonChange: '',
-      inputValue: '',
-      modelInput: null
+      yearInput: '',
+      modelInput: null,
+      colAdjust: 5
     }
   }
 
@@ -157,36 +154,38 @@ class VehicleSearch extends React.Component {
   }
 
   handleMakeChange() {
-    console.log('loading:', this.props.loading);
-    console.log('error:', this.props.error);
+    setTimeout( () => {
+      this.setState({modelInput: '', yearInput: ''})
+      this.setState({colAdjust: 5})
+      this.setState({buttonChange: ''})
+    }, 400);
+
     setTimeout( () => {
       if(this.props.vehicles.length > 0){
       this.setState({trimNotificaton: <h2>Select trim</h2>}); this.setState({backgroundImageHide: false})
-    } else {
-      this.setState({trimNotificaton: <h2>Sorry, no results found.</h2>})
-      console.log(this.props.vehicles.length);
     }
-        console.log('first set timeout')
-    }, 500);
+  }, 400);
+
     this.setState({correctMake: true})
-    console.log('before', this.state.backgroundHide);
     setTimeout( () => {
       if(this.props.vehicles.length > 5) {
         this.setState({backgroundHide: "100%"})
-        console.log('after', this.state.backgroundHide);
+      } else {
+        this.setState({backgroundHide: "100vh"})
       }
-    }, 500);
+    }, 300);
+
     }
 
-  onSubmit(change, button, format, containerAdjust) {
+  onSubmit() {
     this.setState({backgroundHide: '100vh'})
     this.setState({button: "test"})
-    this.setState({ containerAdjust: !containerAdjust, trimNotificaton: '' })
+    let container = this.state.containerAdjust
+    this.setState({ containerAdjust: !container, trimNotificaton: '' })
     this.setState({ widthAdjust: '100%' })
     this.setState({ changed: 'none'})
     this.setState({ format: 'center'})
     this.setState({ change: 'black' })
-
     this.setState({ button: <div style={{color: 'white'}}>
     <Link to={{ pathname: "/vehicles",
       state: { make: this.props.make}}
@@ -200,17 +199,17 @@ class VehicleSearch extends React.Component {
   }
 
   handleInput = (e) => {
-  console.log(this.state.inputValue);
-  this.setState({[e.target.name]: e.target.value});
-  if(this.state.inputValue.length > 3 && this.state.modelInput !== null ) {
-  console.log("year", this.state.inputValue);
-  console.log('model:', this.state.modelInput);
-  this.setState({buttonChange: <Button className="vehicle-scale" color="info">Submit</Button>})
+    this.setState({[e.target.name]: e.target.value});
+    if(this.state.yearInput.length > 3 && this.state.modelInput !== null || this.state.modelInput !== null && this.state.yearInput.length > 3) {
+    this.setState({buttonChange: <Button className="vehicle-scale" color="info">Submit</Button>})
+    this.setState({colAdjust: 4})
   } else {
-  console.log('null');
+    this.setState({buttonChange: ''})
+    this.setState({colAdjust: 5})
+  }
 }
 
-}
+
 
   render() {
 
@@ -236,9 +235,18 @@ class VehicleSearch extends React.Component {
 
       return (
         <div style={this.state.backgroundImageHide ? backgroundStyle : backgroundStyleHidden}>
+          <Row className="justify-content-between">
           <Link to='/makes'>
-          <Button className="m-3" color="info">Go Back</Button>{' '}
+          <Button className="mt-3 ml-5" color="info">Go Back</Button>
           </Link>
+          <span onClick={() => this.handleMakeChange()}><Button onClick={(e) => {
+            e.preventDefault();
+            this.props.dispatch(
+              fetchVehicle(this.props.make, model.value, year.value)
+            );
+          }} className="mt-3 mr-5" color="secondary">Search all</Button></span>
+          </Row>
+
           <h1 style={{display: this.state.changed}} class="make-header">{this.props.make}</h1>
           <div style={{display: this.state.changed}} className="input-form">
             <Form
@@ -250,27 +258,28 @@ class VehicleSearch extends React.Component {
               }}
               >
               <FormGroup row>
-                <Col sm={4}>
+                <Col sm={this.state.colAdjust}>
                   <input className="input-bs"
                     placeholder="Year"
                     ref={input => {
                       year = input;
-                    }} value={this.state.inputValue} name="inputValue" onChange={this.handleInput}
+                    }} value={this.state.yearInput} name="yearInput" onChange={this.handleInput}
                     />
                 </Col>
                 <Col sm={2} className="text-center vehicle-scale-2">
                   <span className="make-form-prop">{this.props.make}</span>
                 </Col>
-                <Col className="vehicle-scale-col" sm={4}>
+                <Col className="vehicle-scale-col" sm={this.state.colAdjust}>
                   <input className="input-bs"
                     placeholder="Model"
                     ref={input2 => {
                       model = input2;
                     }} value={this.state.modelInput} name="modelInput" onChange={this.handleInput}
+                    onKeyDown={this.onKeyDown}
                     />
                 </Col>
                 <Col sm={2}>
-                  <span onClick={() => this.handleMakeChange(year.value)}>{this.state.buttonChange}</span>
+                  <span onClick={() => this.handleMakeChange()}>{this.state.buttonChange}</span>
                   </Col>
                 </FormGroup>
               </Form>
