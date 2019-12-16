@@ -78,7 +78,6 @@ handleClick(turboMenu, selectedTrim, none) {
     this.setState({ turboMenu: !turboMenu})
 
 this.setState({active: this.props.test})
-
 }
 
 
@@ -102,6 +101,7 @@ render() {
   }
 
   let psi
+
   return (
       <div className={this.props.containerAdjust ? 'vehicle-container': null} style={{width: this.props.widthAdjust}}>
           { trimSelection

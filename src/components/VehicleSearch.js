@@ -64,7 +64,10 @@ class VehicleSearch extends React.Component {
       formValid: false,
       trimNotificaton: "",
       backgroundHide: "100vh",
-      backgroundImageHide: true
+      backgroundImageHide: true,
+      buttonChange: '',
+      inputValue: '',
+      modelInput: null
     }
   }
 
@@ -153,7 +156,7 @@ class VehicleSearch extends React.Component {
     }
   }
 
-  handleMakeChange(vehicle) {
+  handleMakeChange() {
     console.log('loading:', this.props.loading);
     console.log('error:', this.props.error);
     setTimeout( () => {
@@ -195,6 +198,19 @@ class VehicleSearch extends React.Component {
     this.setState({change: 'white'})
     this.setState({button: null})
   }
+
+  handleInput = (e) => {
+  console.log(this.state.inputValue);
+  this.setState({[e.target.name]: e.target.value});
+  if(this.state.inputValue.length > 3 && this.state.modelInput !== null ) {
+  console.log("year", this.state.inputValue);
+  console.log('model:', this.state.modelInput);
+  this.setState({buttonChange: <Button className="vehicle-scale" color="info">Submit</Button>})
+  } else {
+  console.log('null');
+}
+
+}
 
   render() {
 
@@ -239,7 +255,7 @@ class VehicleSearch extends React.Component {
                     placeholder="Year"
                     ref={input => {
                       year = input;
-                    }}
+                    }} value={this.state.inputValue} name="inputValue" onChange={this.handleInput}
                     />
                 </Col>
                 <Col sm={2} className="text-center vehicle-scale-2">
@@ -248,13 +264,13 @@ class VehicleSearch extends React.Component {
                 <Col className="vehicle-scale-col" sm={4}>
                   <input className="input-bs"
                     placeholder="Model"
-                    ref={input => {
-                      model = input;
-                    }}
+                    ref={input2 => {
+                      model = input2;
+                    }} value={this.state.modelInput} name="modelInput" onChange={this.handleInput}
                     />
                 </Col>
                 <Col sm={2}>
-                  <span onClick={() => this.handleMakeChange()}><Button className="vehicle-scale" color="info">Submit</Button>{' '}</span>
+                  <span onClick={() => this.handleMakeChange(year.value)}>{this.state.buttonChange}</span>
                   </Col>
                 </FormGroup>
               </Form>
@@ -268,7 +284,7 @@ class VehicleSearch extends React.Component {
                 ) : this.props.error ? (
                   <p>Loading...</p>
                 ) : (
-                  this.props.vehicles.map((vehicle, test) => <Vehicle vehicle={vehicle} test={test} key={test} changed={this.state.changed} widthAdjust={this.state.widthAdjust} containerAdjust={this.state.containerAdjust} correctMake={this.state.correctMake} />)
+                  this.props.vehicles.map((vehicle) => <Vehicle vehicle={vehicle} key={vehicle.id} changed={this.state.changed} widthAdjust={this.state.widthAdjust} containerAdjust={this.state.containerAdjust} correctMake={this.state.correctMake} />)
                 )}
                 {this.state.button}
               </div>
