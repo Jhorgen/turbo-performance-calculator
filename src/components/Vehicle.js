@@ -88,7 +88,8 @@ render() {
 
   let testernest={
     color: 'white',
-    background: '#00000042'
+    background: '#00000042',
+    fontSize: '2rem'
   }
 
   var unclickedStyle = {
@@ -102,7 +103,7 @@ render() {
   let psi
 
   return (
-      <div className={this.props.containerAdjust ? 'vehicle-container': null} style={{width: this.props.widthAdjust}}>
+      <div>
           { trimSelection
     ? <div className="mapped-v" style={{display: this.props.changed}} onClick={() => this.handleClick()}><Row className="justify-content-center"><p className="pr-2">{this.props.vehicle.year}</p>
     <p className="pr-2">{this.props.vehicle.model}</p>
