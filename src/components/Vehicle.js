@@ -10,35 +10,32 @@ class Vehicle extends React.Component {
       newTorque:  null,
       selectValue: 0,
       upgradesRequired: null,
-      active: null,
-      active2: this.props.test,
       none: this.props.changed,
       turboMenu: false,
       selectedTrim: null,
-      newnew: true,
       selectColor: 'white',
       trimSelection: this.props.correctMake,
     }
   }
 
-   RunThis = (e, horsepower, torque, psi) => {
+   calculateRestult = (e, horsepower, torque, psi) => {
      e.preventDefault();
      psi = psi === '' ? 0 : psi
 
      let horsepowerResult = parseInt(horsepower) + parseInt(psi*8) + parseFloat(this.state.selectValue)
      let torqueResult = parseInt(torque) + parseInt(psi) + parseFloat(this.state.selectValue)
 
-     console.log(horsepower, torque, psi);
+     console.log("hp, torque, psi:", horsepower, torque, psi);
 
       this.setState({newHorsepower: 'Turbocharged horsepower: ' + horsepowerResult, newTorque: 'Turbocharged torque: ' + torqueResult})
     }
 
-  callThis = (e) => {
+  turboInput = (e) => {
     this.setState({...this.state, selectValue: e.target.value});
-    console.log(this.state.selectValue);
+    console.log("turbo input:", this.state.selectValue);
   }
 
-  testerTest = () => {
+  powerCheck = () => {
     let horsepower = +this.state.newHorsepower.replace(/[^0-9.]/g,"");
 
     if (horsepower > 500) {
@@ -47,14 +44,12 @@ class Vehicle extends React.Component {
     })
   }
   else {
-    console.log('tester');
+    console.log('Ran');
   }
 }
 
 handleClick(turboMenu, selectedTrim, none) {
   this.setState({none: this.props.changed})
-  console.log(this.props.changed);
-  console.log(this.props.vehicle);
   this.setState({selectedTrim:
     <div className="1">
       <Row className="justify-content-center">
@@ -75,10 +70,7 @@ handleClick(turboMenu, selectedTrim, none) {
     </div>
         })
     this.setState({ turboMenu: !turboMenu})
-
-this.setState({active: this.props.test})
 }
-
 
 
 render() {
@@ -86,7 +78,7 @@ render() {
   const { turboMenu } = this.state;
   const { selectedTrim } = this.state;
 
-  let testernest={
+  let turboMenuContainer={
     color: 'white',
     background: '#00000042',
     fontSize: '2rem'
@@ -112,13 +104,13 @@ render() {
   }
 
    { turboMenu
-   ? <div className="3" style={testernest} >
+   ? <div className="3" style={turboMenuContainer} >
     <div className="4"> {this.state.selectedTrim}</div>
-     <form onSubmit={(e) => this.RunThis(e, this.props.vehicle.horsepower, this.props.vehicle.torque, psi.value)}>
+     <form onSubmit={(e) => this.calculateRestult(e, this.props.vehicle.horsepower, this.props.vehicle.torque, psi.value)}>
        <Row className="justify-content-center">
          <Col sm={4}>
            <Label>Turbocharger Selection</Label>
-    <Input type="select" onChange={this.callThis} >
+    <Input type="select" onChange={this.turboInput} >
     <option value=''>Select turbo</option>
     <option value='0.5'>GT28R</option>
     <option value='1'>K03</option>

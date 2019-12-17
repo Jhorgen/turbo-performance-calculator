@@ -56,8 +56,6 @@ class VehicleSearch extends React.Component {
       widthAdjust: '',
       containerAdjust: false,
       correctMake: '',
-      yearValid: false,
-      modelValid: false,
       trimNotificaton: "",
       backgroundHide: "100vh",
       backgroundImageHide: true,
@@ -153,7 +151,7 @@ class VehicleSearch extends React.Component {
     }
   }
 
-  handleMakeChange() {
+  onSubmit() {
     setTimeout( () => {
       this.setState({modelInput: '', yearInput: ''})
       this.setState({colAdjust: 5})
@@ -162,9 +160,9 @@ class VehicleSearch extends React.Component {
 
     setTimeout( () => {
       if(this.props.vehicles.length > 0){
-      this.setState({trimNotificaton: <h2>Select trim</h2>}); this.setState({backgroundImageHide: false})
-    }
-  }, 500);
+        this.setState({trimNotificaton: <h2>Select trim</h2>}); this.setState({backgroundImageHide: false})
+      }
+    }, 500);
 
     this.setState({correctMake: true})
     setTimeout( () => {
@@ -175,60 +173,46 @@ class VehicleSearch extends React.Component {
       }
     }, 400);
 
-    }
+  }
 
-  onSubmit() {
-    this.setState({backgroundHide: '100vh'})
-    this.setState({button: "test"})
+  onSearchResultClick() {
     let container = this.state.containerAdjust
-    this.setState({ containerAdjust: !container, trimNotificaton: '' })
-    this.setState({ widthAdjust: '100%' })
-    this.setState({ changed: 'none'})
-    this.setState({ format: 'center'})
-    this.setState({ change: 'black' })
+    this.setState({backgroundHide: '100vh', containerAdjust: !container, trimNotificaton: '', widthAdjust: '100%', changed: 'none', format: 'center', change: 'black' })
     this.setState({ button: <div style={{color: 'white'}}>
     <Link to={{ pathname: "/vehicles",
       state: { make: this.props.make}}
     }>
     <Button class="secondary" onClick={() => window.location.reload()}>Search again!</Button></Link></div>  })
-  }
-
-  goBack(change, button) {
-    this.setState({change: 'white'})
-    this.setState({button: null})
-  }
-
-  handleInput = (e) => {
-    this.setState({[e.target.name]: e.target.value});
-    if(this.state.yearInput.length > 3 && this.state.modelInput !== null || this.state.modelInput !== null && this.state.yearInput.length > 3) {
-    this.setState({buttonChange: <Button className="vehicle-scale" color="info">Submit</Button>})
-    this.setState({colAdjust: 4})
-  } else {
-    this.setState({buttonChange: ''})
-    this.setState({colAdjust: 5})
-  }
-}
-
-
-
-  render() {
-
-    var backgroundStyle = {
-      backgroundImage: `url(${this.imageForMake(this.props.make)})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      width: "100%",
-      height: this.state.backgroundHide,
-      backgroundColor: 'Black'
-    };
-
-    var backgroundStyleHidden = {
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      width: "100%",
-      height: this.state.backgroundHide,
-      backgroundColor: 'Black'
     }
+
+    handleInput = (e) => {
+      this.setState({[e.target.name]: e.target.value});
+      if(this.state.yearInput.length > 3 && this.state.modelInput !== null || this.state.modelInput !== null && this.state.yearInput.length > 3) {
+        this.setState({buttonChange: <Button className="vehicle-scale" color="info">Submit</Button>})
+        this.setState({colAdjust: 4})
+      } else {
+        this.setState({buttonChange: '', colAdjust: 5})
+      }
+    }
+
+    render() {
+
+      var backgroundStyle = {
+        backgroundImage: `url(${this.imageForMake(this.props.make)})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        width: "100%",
+        height: this.state.backgroundHide,
+        backgroundColor: 'Black'
+      };
+
+      var backgroundStyleHidden = {
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        width: "100%",
+        height: this.state.backgroundHide,
+        backgroundColor: 'Black'
+      }
 
       let model = null;
       let year = null;
@@ -236,68 +220,68 @@ class VehicleSearch extends React.Component {
       return (
         <div style={this.state.backgroundImageHide ? backgroundStyle : backgroundStyleHidden}>
           <Row className="justify-content-between">
-          <Link to='/makes'>
-          <Button className="mt-3 ml-5" color="info">Go Back</Button>
-          </Link>
-          <span style={{display: this.state.changed}} onClick={() => this.handleMakeChange()}><Button onClick={(e) => {
-            e.preventDefault();
-            this.props.dispatch(
-              fetchVehicle(this.props.make, model.value, year.value)
-            );
-          }} className="mt-3 mr-5" color="secondary">Search all</Button></span>
-          </Row>
-
-          <h1 style={{display: this.state.changed}} class="make-header">{this.props.make}</h1>
-          <div style={{display: this.state.changed}} className="input-form">
-            <Form className="input-form-adjust"
-              onSubmit={(e) => {
+            <Link to='/makes'>
+              <Button className="mt-3 ml-5" color="info">Go Back</Button>
+            </Link>
+            <span style={{display: this.state.changed}} onClick={() => this.onSubmit()}><Button onClick={(e) => {
                 e.preventDefault();
                 this.props.dispatch(
                   fetchVehicle(this.props.make, model.value, year.value)
                 );
-              }}
-              >
-              <FormGroup row>
-                <Col sm={this.state.colAdjust}>
-                  <input className="input-bs"
-                    placeholder="Year"
-                    ref={input => {
-                      year = input;
-                    }} value={this.state.yearInput} name="yearInput" onChange={this.handleInput}
-                    />
-                </Col>
-                <Col sm={2} className="text-center vehicle-scale-2">
-                  <span className="make-form-prop">{this.props.make}</span>
-                </Col>
-                <Col className="vehicle-scale-col" sm={this.state.colAdjust}>
-                  <input className="input-bs"
-                    placeholder="Model"
-                    ref={input2 => {
-                      model = input2;
-                    }} value={this.state.modelInput} name="modelInput" onChange={this.handleInput}
-                    onKeyDown={this.onKeyDown}
-                    />
-                </Col>
-                <Col sm={2}>
-                  <span onClick={() => this.handleMakeChange()}>{this.state.buttonChange}</span>
+              }} className="mt-3 mr-5" color="secondary">Search all</Button></span>
+            </Row>
+
+            <h1 style={{display: this.state.changed}} class="make-header">{this.props.make}</h1>
+            <div style={{display: this.state.changed}} className="input-form">
+              <Form className="input-form-adjust"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  this.props.dispatch(
+                    fetchVehicle(this.props.make, model.value, year.value)
+                  );
+                }}
+                >
+                <FormGroup row>
+                  <Col sm={this.state.colAdjust}>
+                    <input className="input-bs"
+                      placeholder="Year"
+                      ref={input => {
+                        year = input;
+                      }} value={this.state.yearInput} name="yearInput" onChange={this.handleInput}
+                      />
+                  </Col>
+                  <Col sm={2} className="text-center vehicle-scale-2">
+                    <span className="make-form-prop">{this.props.make}</span>
+                  </Col>
+                  <Col className="vehicle-scale-col" sm={this.state.colAdjust}>
+                    <input className="input-bs"
+                      placeholder="Model"
+                      ref={input2 => {
+                        model = input2;
+                      }} value={this.state.modelInput} name="modelInput" onChange={this.handleInput}
+                      onKeyDown={this.onKeyDown}
+                      />
+                  </Col>
+                  <Col sm={2}>
+                    <span onClick={() => this.onSubmit()}>{this.state.buttonChange}</span>
                   </Col>
                 </FormGroup>
               </Form>
             </div>
-              <Row className="justify-content-center text-white">
-                {this.state.trimNotificaton}
-              </Row>
-              <div className="5" onClick={() => this.onSubmit()} style={{color: this.state.change, justifyContent: this.state.format}} className="vehicle-result">
-                {this.props.loading ? (
-                  <p className="loading">test</p>
-                ) : this.props.error ? (
-                  <p>Loading...</p>
-                ) : (
-                  this.props.vehicles.map((vehicle) => <Vehicle vehicle={vehicle} key={vehicle.id} changed={this.state.changed} widthAdjust={this.state.widthAdjust} containerAdjust={this.state.containerAdjust} correctMake={this.state.correctMake} />)
-                )}
-                {this.state.button}
-              </div>
-              </div>
+            <Row className="justify-content-center text-white">
+              {this.state.trimNotificaton}
+            </Row>
+            <div className="5" onClick={() => this.onSearchResultClick()} style={{color: this.state.change, justifyContent: this.state.format}} className="vehicle-result">
+              {this.props.loading ? (
+                <p className="loading">test</p>
+              ) : this.props.error ? (
+                <p>Loading...</p>
+              ) : (
+                this.props.vehicles.map((vehicle) => <Vehicle vehicle={vehicle} key={vehicle.id} changed={this.state.changed} widthAdjust={this.state.widthAdjust} containerAdjust={this.state.containerAdjust} correctMake={this.state.correctMake} />)
+              )}
+              {this.state.button}
+            </div>
+          </div>
         );
       }
     }
