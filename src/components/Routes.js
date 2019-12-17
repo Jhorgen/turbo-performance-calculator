@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import { ConnectedApp } from "./App";
-import IntroPage from "./IntroPage";
 import MakeSelect from "./MakeSelect";
 import "../App.css";
 
@@ -10,8 +9,7 @@ function Routes() {
     <div>
       <BrowserRouter>
         <Switch>
-          <Route component={IntroPage} exact path="/" />
-          <Route component={MakeSelect} path="/makes" />
+          <Route component={MakeSelect} exact path="/" />
           <Route
             render={props => (
               <ConnectedApp

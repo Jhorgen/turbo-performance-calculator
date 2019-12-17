@@ -7,7 +7,6 @@ import BMW from "./../assets/bmw.png";
 import Lexus from "./../assets/lexus.png";
 import Toyota from "./../assets/toyota.png";
 import Honda from "./../assets/honda.png";
-import bgg from "./../assets/makeselect.jpg";
 import Nissan from "./../assets/nissan.png";
 import Ferrari from "./../assets/ferrari.png";
 import Hyundai from "./../assets/hyundai.png";
@@ -108,7 +107,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Aston Martin" }
                 }}
               >
-                <img src={AstonMartin} className="make-select" />
+                <img src={AstonMartin} alt="vehicle" className="make-select" />
               </Link>
             </Col>
             <Col sm={2}>
@@ -118,7 +117,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Alfa Romeo" }
                 }}
               >
-                <img src={AlfaRomeo} className="make-select" />
+                <img src={AlfaRomeo} alt="vehicle" className="make-select" />
               </Link>
             </Col>
             <Col sm={2}>
@@ -128,7 +127,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Audi" }
                 }}
               >
-                <img src={Audi} className="make-select" />
+                <img src={Audi} alt="vehicle" className="make-select" />
               </Link>
             </Col>
             <Col sm={2}>
@@ -138,7 +137,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Bently" }
                 }}
               >
-                <img src={Bently} className="make-select" />
+                <img src={Bently} alt="vehicle" className="make-select" />
               </Link>
             </Col>
             <Col sm={2}>
@@ -148,7 +147,7 @@ class MakeSelect extends React.Component {
                   state: { make: "BMW" }
                 }}
               >
-                <img src={BMW} className="make-select" />
+                <img src={BMW} alt="vehicle" className="make-select" />
               </Link>
             </Col>
             <Col sm={2}>
@@ -158,7 +157,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Fiat" }
                 }}
               >
-                <img src={Fiat} className="make-select" />
+                <img src={Fiat} alt="vehicle" className="make-select" />
               </Link>
             </Col>
           </Row>
@@ -170,7 +169,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Maserati" }
                 }}
               >
-                <img src={Maserati} className="make-select" />
+                <img src={Maserati} alt="vehicle" className="make-select" />
               </Link>
               </Col>
               <Col sm={2}>
@@ -180,7 +179,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Mercedes" }
                 }}
               >
-                <img src={Mercedes} className="make-select" />
+                <img src={Mercedes} alt="vehicle" className="make-select" />
               </Link>
             </Col>
             <Col sm={2}>
@@ -190,7 +189,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Mini" }
                 }}
               >
-                <img src={Mini} className="make-select" />
+                <img src={Mini} alt="vehicle" className="make-select" />
               </Link>
             </Col>
             <Col sm={2}>
@@ -200,7 +199,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Jaguar" }
                 }}
               >
-                <img src={Jaguar} className="make-select" />
+                <img src={Jaguar} alt="vehicle" className="make-select" />
               </Link>
             </Col>
             <Col sm={2}>
@@ -210,7 +209,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Land Rover" }
                 }}
               >
-                <img src={LandRover} className="make-select" />
+                <img src={LandRover} alt="vehicle" className="make-select" />
               </Link>
             </Col>
             <Col sm={2}>
@@ -220,7 +219,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Porsche" }
                 }}
               >
-                <img src={Porsche} className="make-select" />
+                <img src={Porsche} alt="vehicle" className="make-select" />
               </Link>
             </Col>
           </Row>
@@ -232,7 +231,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Saab" }
                 }}
               >
-                <img src={Saab} className="make-select" />
+                <img src={Saab} alt="vehicle" className="make-select" />
               </Link>
             </Col>
             <Col sm={2}>
@@ -242,7 +241,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Volkswagen" }
                 }}
               >
-                <img src={Volkswagen} className="make-select" />
+                <img src={Volkswagen} alt="vehicle" className="make-select" />
               </Link>
             </Col>
             <Col sm={2}>
@@ -252,7 +251,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Volvo" }
                 }}
               >
-                <img src={Volvo} className="make-select" />
+                <img src={Volvo} alt="vehicle" className="make-select" />
               </Link>
             </Col>
           </Row>
@@ -277,7 +276,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Ford" }
                 }}
               >
-                <img src={Ford} className="make-select" />
+                <img src={Ford} alt="vehicle" className="make-select" />
               </Link>
                 </Col>
                 <Col sm={2}>
@@ -287,7 +286,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Chevrolet" }
                 }}
               >
-                <img src={Chevrolet} className="make-select" />
+                <img src={Chevrolet} alt="vehicle" className="make-select" />
               </Link>
                 </Col>
                 <Col sm={2}>
@@ -297,7 +296,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Cadillac" }
                 }}
               >
-                <img src={Cadillac} className="make-select" />
+                <img src={Cadillac} alt="vehicle" className="make-select" />
               </Link>
                 </Col>
                 <Col sm={2}>
@@ -307,7 +306,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Dodge" }
                 }}
               >
-                <img src={Dodge} className="make-select" />
+                <img src={Dodge} alt="vehicle" className="make-select" />
               </Link>
                 </Col>
                 <Col sm={2}>
@@ -317,7 +316,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Chrysler" }
                 }}
               >
-                <img src={Chrysler} className="make-select" />
+                <img src={Chrysler} alt="vehicle" className="make-select" />
               </Link>
                 </Col>
                 <Col sm={2}>
@@ -327,7 +326,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Buick" }
                 }}
               >
-                <img src={Buick} className="make-select" />
+                <img src={Buick} alt="vehicle" className="make-select" />
               </Link>
                 </Col>
               </Row>
@@ -339,7 +338,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Mercury" }
                 }}
               >
-                <img src={Mercury} className="make-select" />
+                <img src={Mercury} alt="vehicle" className="make-select" />
               </Link>
                 </Col>
                 <Col sm={2}>
@@ -349,7 +348,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Jeep" }
                 }}
               >
-                <img src={Jeep} className="make-select" />
+                <img src={Jeep} alt="vehicle" className="make-select" />
               </Link>
                 </Col>
                 <Col sm={2}>
@@ -359,7 +358,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Pontiac" }
                 }}
               >
-                <img src={Pontiac} className="make-select" />
+                <img src={Pontiac} alt="vehicle" className="make-select" />
               </Link>
                 </Col>
                 <Col sm={2}>
@@ -369,7 +368,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Saturn" }
                 }}
               >
-                <img src={Saturn} className="make-select" />
+                <img src={Saturn} alt="vehicle" className="make-select" />
               </Link>
             </Col>
           </Row>
@@ -377,7 +376,7 @@ class MakeSelect extends React.Component {
           )}
         </div>
 
-        <div onClick={() => this.handleImportList()} className="make-dropdown">
+        <div onClick={() => this.handleImportList()} alt="vehicle" className="make-dropdown">
           <h1>Import</h1>
         </div>
         <div className="layer">
@@ -391,7 +390,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Mazda" }
                 }}
               >
-                <img src={Mazda} className="make-select" />
+                <img src={Mazda} alt="vehicle" className="make-select" />
               </Link>
                 </Col>
                 <Col sm={2}>
@@ -401,7 +400,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Honda" }
                 }}
               >
-                <img src={Honda} className="make-select" />
+                <img src={Honda} alt="vehicle" className="make-select" />
               </Link>
                 </Col>
                 <Col sm={2}>
@@ -411,7 +410,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Infiniti" }
                 }}
               >
-                <img src={Infiniti} className="make-select" />
+                <img src={Infiniti} alt="vehicle" className="make-select" />
               </Link>
                   </Col>
                   <Col sm={2}>
@@ -421,7 +420,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Kia" }
                 }}
               >
-                <img src={Kia} className="make-select" />
+                <img src={Kia} alt="vehicle" className="make-select" />
               </Link>
                   </Col>
                   <Col sm={2}>
@@ -431,7 +430,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Lexus" }
                 }}
               >
-                <img src={Lexus} className="make-select" />
+                <img src={Lexus} alt="vehicle" className="make-select" />
               </Link>
                   </Col>
                   <Col sm={2}>
@@ -441,7 +440,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Acura" }
                 }}
               >
-                <img src={Acura} className="make-select" />
+                <img src={Acura} alt="vehicle" className="make-select" />
               </Link>
                   </Col>
                 </Row>
@@ -453,7 +452,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Hyundai" }
                 }}
               >
-                <img src={Hyundai} className="make-select" />
+                <img src={Hyundai} alt="vehicle" className="make-select" />
               </Link>
                   </Col>
                   <Col sm={2}>
@@ -463,7 +462,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Toyota" }
                 }}
               >
-                <img src={Toyota} className="make-select" />
+                <img src={Toyota} alt="vehicle" className="make-select" />
               </Link>
                   </Col>
                   <Col sm={2}>
@@ -473,7 +472,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Nissan" }
                 }}
               >
-                <img src={Nissan} className="make-select" />
+                <img src={Nissan} alt="vehicle" className="make-select" />
               </Link>
                   </Col>
                   <Col sm={2}>
@@ -483,7 +482,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Mitsubishi" }
                 }}
               >
-                <img src={Mitsubishi} className="make-select" />
+                <img src={Mitsubishi} alt="vehicle" className="make-select" />
               </Link>
                   </Col>
                   <Col sm={2}>
@@ -493,7 +492,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Subaru" }
                 }}
               >
-                <img src={Subaru} className="make-select" />
+                <img src={Subaru} alt="vehicle" className="make-select" />
               </Link>
                   </Col>
                 </Row>
@@ -505,7 +504,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Suzuki" }
                 }}
               >
-                <img src={Suzuki} className="make-select" />
+                <img src={Suzuki} alt="vehicle" className="make-select" />
               </Link>
                   </Col>
                 </Row>
@@ -513,7 +512,7 @@ class MakeSelect extends React.Component {
           )}
         </div>
 
-        <div onClick={() => this.handleExoticList()} className="make-dropdown">
+        <div onClick={() => this.handleExoticList()} alt="vehicle" className="make-dropdown">
           <h1>Exotic</h1>
         </div>
         <div className="layer">
@@ -527,7 +526,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Mclaren" }
                 }}
               >
-                <img src={Mclaren} className="make-select" />
+                <img src={Mclaren} alt="vehicle" className="make-select" />
               </Link>
             </Col>
             <Col sm={2}>
@@ -537,7 +536,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Lamborghini" }
                 }}
               >
-                <img src={Lamborghini} className="make-select" />
+                <img src={Lamborghini} alt="vehicle" className="make-select" />
               </Link>
             </Col>
             <Col sm={2}>
@@ -547,7 +546,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Lotus" }
                 }}
               >
-                <img src={Lotus} className="make-select" />
+                <img src={Lotus} alt="vehicle" className="make-select" />
               </Link>
             </Col>
             <Col sm={2}>
@@ -557,7 +556,7 @@ class MakeSelect extends React.Component {
                   state: { make: "Ferrari" }
                 }}
               >
-                <img src={Ferrari} className="make-select" />
+                <img src={Ferrari} alt="vehicle" className="make-select" />
               </Link>
             </Col>
           </Row>

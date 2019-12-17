@@ -44,8 +44,8 @@ import chevy from "./../img/chevybackground.jpg";
 import jeep from "./../img/jeepbackground.jpg";
 import { Col, Form, FormGroup, Button, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
-
-class VehicleSearch extends React.Component {
+ 
+class VehicleSearch extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -220,7 +220,7 @@ class VehicleSearch extends React.Component {
       return (
         <div style={this.state.backgroundImageHide ? backgroundStyle : backgroundStyleHidden}>
           <Row className="justify-content-between">
-            <Link to='/makes'>
+            <Link to='/'>
               <Button className="mt-3 ml-5" color="info">Go Back</Button>
             </Link>
             <span style={{display: this.state.changed}} onClick={() => this.onSubmit()}><Button onClick={(e) => {
