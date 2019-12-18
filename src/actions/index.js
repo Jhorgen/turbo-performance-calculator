@@ -24,3 +24,18 @@ export const fetchVehicle = (make, model, year, trim) => {
       );
   }
 };
+
+export const loadVehicleData = () => {
+  return (dispatch) => {
+    dispatch(requestVehicle());
+    fetch(`https://sleepy-waters-58808.herokuapp.com/api/v1/vehicles`)
+      .then(res => res.json())
+      .then(
+        data => { console.log('data', data);
+        dispatch(requestVehicleSuccess(data))},
+        err => console.log('error', err),
+        dispatch(requestVehicleError())
+
+      );
+  }
+}

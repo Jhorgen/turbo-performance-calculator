@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { loadVehicleData } from "./../actions/index";
 import {Row, Col} from 'reactstrap'
 import { Link } from "react-router-dom";
 import AlfaRomeo from "./../assets/alfa-romeo.png";
@@ -54,6 +56,12 @@ class MakeSelect extends React.Component {
       domesticClicked: false,
       exoticClicked: false
     };
+  }
+
+  componentDidMount() {
+    console.log('work');
+    this.props.dispatch(
+      loadVehicleData())
   }
 
   handleEuropeanList = () => {
@@ -568,4 +576,4 @@ class MakeSelect extends React.Component {
   }
 }
 
-export default MakeSelect;
+export default connect(state => state)(MakeSelect);
