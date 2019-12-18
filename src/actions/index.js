@@ -20,7 +20,6 @@ export const fetchVehicle = (make, model, year, trim) => {
         dispatch(requestVehicleSuccess(data))},
         err => console.log('error', err),
         dispatch(requestVehicleError())
-
       );
   }
 };
@@ -35,7 +34,6 @@ export const loadVehicleData = () => {
         dispatch(requestVehicleSuccess(data))},
         err => console.log('error', err),
         dispatch(requestVehicleError())
-
       );
   }
 }

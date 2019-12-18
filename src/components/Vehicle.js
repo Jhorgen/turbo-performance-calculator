@@ -97,9 +97,19 @@ render() {
   return (
       <div>
           { trimSelection
-    ? <div className="mapped-v" style={{display: this.props.changed}} onClick={() => this.handleClick()}><Row className="justify-content-center"><p className="pr-2">{this.props.vehicle.year}</p>
-    <p className="pr-2">{this.props.vehicle.model}</p>
-    <p>{this.props.vehicle.trim}</p></Row></div>
+    ? <div className="mapped-v" style={{display: this.props.changed}} onClick={() => this.handleClick()}>
+    <Row className="justify-content-center">
+      <Col sm={1}>
+    <p>{this.props.vehicle.year}</p>
+    </Col>
+    <Col sm={1}>
+    <p>{this.props.vehicle.model}</p>
+    </Col>
+    <Col sm={1}>
+    <p>{this.props.vehicle.trim}</p>
+    </Col>
+    </Row>
+  </div>
   : null
   }
 

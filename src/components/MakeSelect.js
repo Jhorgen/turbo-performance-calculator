@@ -59,7 +59,6 @@ class MakeSelect extends React.Component {
   }
 
   componentDidMount() {
-    console.log('work');
     this.props.dispatch(
       loadVehicleData())
   }

@@ -44,7 +44,7 @@ import chevy from "./../img/chevybackground.jpg";
 import jeep from "./../img/jeepbackground.jpg";
 import { Col, Form, FormGroup, Button, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
- 
+
 class VehicleSearch extends Component {
   constructor(props) {
     super(props)
@@ -160,7 +160,12 @@ class VehicleSearch extends Component {
 
     setTimeout( () => {
       if(this.props.vehicles.length > 0){
-        this.setState({trimNotificaton: <h2>Select trim</h2>}); this.setState({backgroundImageHide: false})
+        this.setState({trimNotificaton: <Row className="justify-content-center mt-2 text-white ml-3" style={{width: '100%'}}>
+          <Col sm={1}><h2 className="pr-2">Year</h2></Col>
+          <Col sm={1} className="mr-2"><h2 className="pr-2">Model</h2></Col>
+          <Col sm={1} className="ml-3"><h2>Trim</h2></Col>
+        </Row>
+        }); this.setState({backgroundImageHide: false})
       }
     }, 500);
 
@@ -182,7 +187,7 @@ class VehicleSearch extends Component {
     <Link to={{ pathname: "/vehicles",
       state: { make: this.props.make}}
     }>
-    <Button class="secondary" onClick={() => window.location.reload()}>Search again!</Button></Link></div>  })
+    <Button color="secondary" onClick={() => window.location.reload()}>Search again!</Button></Link></div>  })
     }
 
     handleInput = (e) => {
@@ -221,8 +226,9 @@ class VehicleSearch extends Component {
         <div style={this.state.backgroundImageHide ? backgroundStyle : backgroundStyleHidden}>
           <Row className="justify-content-between">
             <Link to='/'>
-              <Button className="mt-3 ml-5" color="info">Go Back</Button>
+              <Button className="mt-3 ml-5" color="info">Main menu</Button>
             </Link>
+            <span className="mt-3 mr-5">{this.state.button}</span>
             <span style={{display: this.state.changed}} onClick={() => this.onSubmit()}><Button onClick={(e) => {
                 e.preventDefault();
                 this.props.dispatch(
@@ -233,7 +239,7 @@ class VehicleSearch extends Component {
 
             <h1 style={{display: this.state.changed}} class="make-header">{this.props.make}</h1>
             <div style={{display: this.state.changed}} className="input-form">
-              <Form className="input-form-adjust"
+              <Form autocomplete="off" className="input-form-adjust"
                 onSubmit={(e) => {
                   e.preventDefault();
                   this.props.dispatch(
@@ -268,9 +274,7 @@ class VehicleSearch extends Component {
                 </FormGroup>
               </Form>
             </div>
-            <Row className="justify-content-center text-white">
               {this.state.trimNotificaton}
-            </Row>
             <div className="5" onClick={() => this.onSearchResultClick()} style={{color: this.state.change, justifyContent: this.state.format}} className="vehicle-result">
               {this.props.loading ? (
                 <p className="loading">test</p>
@@ -279,7 +283,6 @@ class VehicleSearch extends Component {
               ) : (
                 this.props.vehicles.map((vehicle) => <Vehicle vehicle={vehicle} key={vehicle.id} changed={this.state.changed} widthAdjust={this.state.widthAdjust} containerAdjust={this.state.containerAdjust} correctMake={this.state.correctMake} />)
               )}
-              {this.state.button}
             </div>
           </div>
         );
